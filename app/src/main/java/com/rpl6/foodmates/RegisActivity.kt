@@ -17,12 +17,12 @@ import java.util.*
 
 
 class RegisActivity : AppCompatActivity() {
-    private var name: EditText? = null
-    private var email: EditText? = null
-    private var password: EditText? = null
-    private var c_password: EditText? = null
-    private var btn_regist: Button? = null
-    private var loading: ProgressBar? = null
+    private lateinit var name: EditText
+    private lateinit var email: EditText
+    private lateinit var password: EditText
+    private lateinit var c_password: EditText
+    private lateinit var btn_regist: Button
+    private lateinit var loading: ProgressBar
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -48,6 +48,7 @@ class RegisActivity : AppCompatActivity() {
                         val success = jsonObject.getString("success")
                         if (success == "1") {
                             Toast.makeText(this@RegisActivity, "Register Success!", Toast.LENGTH_SHORT).show()
+                            finish()
                         }
                     } catch (e: JSONException) {
                         e.printStackTrace()
@@ -75,6 +76,6 @@ class RegisActivity : AppCompatActivity() {
     }
 
     companion object {
-        private const val URL_REGIST = "https://e2b7b2d8.ngrok.io/regis/register.php"
+        private const val URL_REGIST = "https://b8a8e50f.ngrok.io/regis/register.php"
     }
 }
