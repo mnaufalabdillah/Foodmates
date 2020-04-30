@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="customerButton" type="id" />
+    <item name="textInputLayout2" type="id" />
+    <item name="textInputLayout" type="id" />
+    <item name="chefButton" type="id" />
+</resources>
