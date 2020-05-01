@@ -123,6 +123,7 @@
     </RadioGroup>
 
     <Button
+        android:background="@drawable/roundedbutton"
         android:id="@+id/btn_login"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

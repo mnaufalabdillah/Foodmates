@@ -27,18 +27,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <EditText
-            android:id="@+id/username"
-            android:hint="Username"
-            android:inputType="textPersonName"
-            android:textColor="@color/black"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-        <EditText
             android:id="@+id/email"
             android:hint="Email"
             android:inputType="textEmailAddress"
@@ -120,6 +108,7 @@
 
     <RadioGroup
         android:id="@+id/pilihjk"
+        android:layout_marginTop="20dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
@@ -135,7 +124,7 @@
             android:layout_height="wrap_content"
             android:layout_marginRight="40dp"
             android:checked="true"
-            android:buttonTint="@color/colorPrimary"
+            android:buttonTint="@color/black"
             android:text="Male" />
 
         <RadioButton
@@ -157,8 +146,8 @@
         android:id="@+id/btn_regis"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        android:backgroundTint="@color/colorPrimary"
+        android:layout_marginTop="80dp"
+        android:background="@drawable/roundedbutton"
         android:text="S i g n  U p"
         android:textColor="@android:color/white" />
 </LinearLayout>
