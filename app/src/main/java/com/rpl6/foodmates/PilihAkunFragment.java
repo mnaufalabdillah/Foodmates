@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 
 /**
@@ -31,6 +32,13 @@ public class PilihAkunFragment extends Fragment {
 
         imgUser = v.findViewById(R.id.imgUser);
         imgChef = v.findViewById(R.id.imgChef);
+
+        imgChef.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(getActivity(), "Belom ada gan, sabar", Toast.LENGTH_SHORT).show();
+            }
+        });
 
         imgUser.setOnClickListener(new View.OnClickListener() {
             @Override

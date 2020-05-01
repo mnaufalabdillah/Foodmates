@@ -67,7 +67,7 @@ public class LoginActivity extends AppCompatActivity {
                             Login(mEmail, mPass);
                             break;
                         case R.id.radioChef:
-                            Toast.makeText(LoginActivity.this, "Belom ada gan", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(LoginActivity.this, "Belom ada gan, sabar", Toast.LENGTH_SHORT).show();
                             break;
                     }
                 }else{
