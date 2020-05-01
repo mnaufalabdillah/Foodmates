@@ -12,7 +12,7 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:text="Welcome!"
-        android:textColor="@color/Black"
+        android:textColor="@color/black"
         android:textSize="45sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/logo"
@@ -50,7 +50,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="30dp"
             android:layout_marginRight="30dp"
-            android:backgroundTint="@color/Black"
+            android:backgroundTint="@color/black"
             android:hint="Username"
             android:inputType="text"
             android:textColor="@android:color/black"
@@ -87,7 +87,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="30dp"
             android:layout_marginRight="30dp"
-            android:backgroundTint="@color/Black"
+            android:backgroundTint="@color/black"
             android:hint="Password"
             android:inputType="textPassword"
             android:textColor="@android:color/black"
@@ -100,7 +100,6 @@
         android:layout_height="wrap_content"
         android:layout_margin="20dp"
         android:layout_marginBottom="10dp"
-        android:background="@drawable/btn_round"
         android:text="L O G I N"
         android:textColor="@android:color/white"
         app:layout_constraintBottom_toTopOf="@+id/linearLayout"
@@ -125,7 +124,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="New User?"
-            android:textColor="@color/Black" />
+            android:textColor="@color/black" />
 
         <TextView
             android:id="@+id/link_regis"
@@ -134,7 +133,7 @@
             android:layout_marginLeft="3dp"
             android:gravity="center"
             android:text="Sign Up"
-            android:textColor="@color/Black"
+            android:textColor="@color/black"
             android:textStyle="bold" />
     </LinearLayout>
 
