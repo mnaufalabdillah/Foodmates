@@ -135,6 +135,7 @@
             android:layout_height="wrap_content"
             android:layout_marginRight="40dp"
             android:checked="true"
+            android:buttonTint="@color/colorPrimary"
             android:text="Male" />
 
         <RadioButton
