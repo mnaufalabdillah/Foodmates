@@ -27,6 +27,7 @@ public class HomeActivity extends AppCompatActivity {
                 sessionManager.logout();
                 Intent i = new Intent(HomeActivity.this, LoginActivity.class);
                 startActivity(i);
+                finish();
             }
         });
     }
