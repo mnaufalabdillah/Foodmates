@@ -10,6 +10,7 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:fontFamily="@font/montserrat"
         android:gravity="center"
         android:text="Welcome!"
         android:textColor="@color/black"
@@ -112,6 +113,7 @@
             android:layout_height="wrap_content"
             android:layout_marginRight="40dp"
             android:checked="true"
+            android:buttonTint="@color/black"
             android:text="User" />
 
         <RadioButton
@@ -123,12 +125,14 @@
     </RadioGroup>
 
     <Button
-        android:background="@drawable/roundedbutton"
         android:id="@+id/btn_login"
+        android:elevation="@dimen/cardview_compat_inset_shadow"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="20dp"
         android:layout_marginBottom="10dp"
+        android:background="@drawable/roundedbutton"
+        android:fontFamily="@font/roboto_black"
         android:text="L O G I N"
         android:textColor="@android:color/white"
         app:layout_constraintBottom_toTopOf="@+id/linearLayout"
@@ -152,6 +156,7 @@
             android:id="@+id/newuser"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/montserrat"
             android:text="New User?"
             android:textColor="@color/black" />
 
@@ -160,6 +165,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="3dp"
+            android:fontFamily="@font/montserrat_bold"
             android:gravity="center"
             android:text="Sign Up"
             android:textColor="@color/black"
