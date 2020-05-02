@@ -1,14 +1,55 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".FavoriteFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:orientation="vertical">
 
-</FrameLayout>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="My Favorite"
+        android:textColor="@android:color/black"
+        android:gravity="center"
+        android:fontFamily="@font/roboto"
+        android:textSize="32sp"
+        android:layout_marginTop="64dp"/>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="48dp"
+            android:layout_marginRight="20dp"
+            android:background="@drawable/roundedbutton"
+            android:backgroundTint="@color/pink40"
+            android:drawableLeft="@drawable/mdi_account_circle"
+            android:drawablePadding="15dp"
+            android:padding="20dp"
+            android:text="Lorem ipsum\n100 y.o\nDessert Specialist"
+            android:textAlignment="textStart"
+            android:textSize="17sp"
+            android:textAllCaps="false" />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:background="@drawable/roundedbutton"
+            android:backgroundTint="@color/pink40"
+            android:drawableLeft="@drawable/mdi_account_circle"
+            android:drawablePadding="15dp"
+            android:padding="20dp"
+            android:text="Lorem ipsum\n100 y.o\nDessert Specialist"
+            android:textAlignment="textStart"
+            android:textSize="17sp"
+            android:textAllCaps="false" />
+
+    </LinearLayout>
+</ScrollView>
