@@ -51,8 +51,8 @@
             android:background="@drawable/ic_book_chef"
             android:backgroundTint="@color/white"
             android:layout_margin="20dp"
-            android:layout_gravity="end" />
-
+            android:layout_gravity="end"
+            android:contentDescription="SearchChef" />
 
         <Button
             android:layout_width="wrap_content"
@@ -79,6 +79,27 @@
             android:backgroundTint="@color/yellow"
             />
 
-    </FrameLayout>
+        <RadioGroup
+            android:id="@+id/swipe_chef"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:layout_marginStart="120dp"
+            android:layout_gravity="bottom"
+            android:orientation="horizontal">
 
+            <RadioButton
+                android:id="@+id/radioSwipe1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="true"
+                android:buttonTint="@color/white" />
+
+            <RadioButton
+                android:id="@+id/radioSwipe2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:buttonTint="@color/white" />
+        </RadioGroup>
+    </FrameLayout>
 </RelativeLayout>
