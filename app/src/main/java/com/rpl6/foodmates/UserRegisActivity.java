@@ -10,6 +10,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
@@ -28,10 +30,12 @@ import java.util.Map;
 
 public class UserRegisActivity extends AppCompatActivity {
 
-    private EditText email, password, c_password;
+    private EditText email, password, namaLengkap, c_password, address, phoneNum, age;
     private Button btn_regist;
     private ProgressBar loading;
-    private static String URL_REGIST = "https://cd61d50d.ngrok.io/regis/register.php";
+    private RadioGroup pilihjk;
+    private RadioButton jkdipilih;
+    private static String URL_REGIST = "https://7cbf8581.ngrok.io/foodmates/register.php";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,11 +46,18 @@ public class UserRegisActivity extends AppCompatActivity {
         email = findViewById(R.id.email);
         password = findViewById(R.id.password);
         c_password = findViewById(R.id.c_password);
+        namaLengkap = findViewById(R.id.fullname);
+        address = findViewById(R.id.address);
+        phoneNum = findViewById(R.id.phonenumber);
+        age = findViewById(R.id.age);
+        pilihjk = findViewById(R.id.pilihjk);
         btn_regist = findViewById(R.id.btn_regis);
 
         btn_regist.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                int selectedId = pilihjk.getCheckedRadioButtonId();
+                jkdipilih = findViewById(selectedId);
                 Regist();
             }
         });
@@ -58,6 +69,11 @@ public class UserRegisActivity extends AppCompatActivity {
 
         final String email = this.email.getText().toString().trim();
         final String password = this.password.getText().toString().trim();
+        final String nama_lengkap = this.namaLengkap.getText().toString().trim();
+        final String address = this.address.getText().toString().trim();
+        final String no_telp = this.phoneNum.getText().toString().trim();
+        final String umur = this.age.getText().toString().trim();
+        final String jk = this.jkdipilih.getText().toString().trim();
 
         StringRequest stringRequest = new StringRequest(Request.Method.POST, URL_REGIST,
                 new Response.Listener<String>() {
@@ -99,6 +115,11 @@ public class UserRegisActivity extends AppCompatActivity {
                 Map<String, String> params = new HashMap<>();
                 params.put("email", email);
                 params.put("password", password);
+                params.put("nama_lengkap", nama_lengkap);
+                params.put("umur", umur);
+                params.put("jenis_kelamin", jk);
+                params.put("alamat", address);
+                params.put("no_telp", no_telp);
                 return params;
             }
         };
