@@ -33,13 +33,13 @@
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
         android:background="@drawable/roundedbutton"
-        android:backgroundTint="@color/abuabu" >
+        android:backgroundTint="@color/abu" >
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Top Chef"
-            android:textColor="@android:color/black"
+            android:textColor="@android:color/white"
             android:textSize="33sp"
             android:fontFamily="sans-serif-condensed-medium"
             android:layout_marginTop="10dp"
@@ -49,6 +49,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@drawable/ic_book_chef"
+            android:backgroundTint="@color/white"
             android:layout_margin="20dp"
             android:layout_gravity="end" />
 
@@ -62,7 +63,7 @@
             android:drawableTop="@drawable/mdi_account_circle"
             android:padding="20dp"
             android:background="@drawable/roundedbutton"
-            android:backgroundTint="@color/biru"
+            android:backgroundTint="@color/yellow"
             />
 
         <Button
@@ -75,7 +76,7 @@
             android:drawableTop="@drawable/mdi_account_circle"
             android:padding="20dp"
             android:background="@drawable/roundedbutton"
-            android:backgroundTint="@color/biru"
+            android:backgroundTint="@color/yellow"
             />
 
     </FrameLayout>
