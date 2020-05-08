@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Payment Method"
+        android:textSize="35sp"
+        android:gravity="center"
+        android:layout_marginTop="70dp"
+        android:textColor="@android:color/black"
+        android:fontFamily="@font/montserrat" />
+
+
+    <TextView
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:textColor="@color/black"
+        android:layout_marginTop="40dp"
+        android:layout_marginHorizontal="25dp"
+        android:padding="15dp"
+        android:background="@drawable/payment_border"
+        android:text="Instant Pay"
+        android:textSize="22sp"
+        android:fontFamily="@font/comfortaa"
+        />
+    <TextView
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:drawableStart="@drawable/ovo"
+        android:paddingStart="25dp"
+        android:drawablePadding="30dp"
+        android:textColor="@color/black"
+        android:layout_marginHorizontal="25dp"
+        android:padding="10dp"
+        android:background="@drawable/payment_border"
+        android:text="OVO Payment"
+        android:textSize="17sp"
+        android:fontFamily="@font/comfortaa" />
+    <TextView
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:drawableStart="@drawable/dana"
+        android:drawablePadding="50dp"
+        android:textColor="@color/black"
+        android:layout_marginHorizontal="25dp"
+        android:paddingLeft="45dp"
+        android:paddingVertical="10dp"
+        android:background="@drawable/payment_border"
+        android:text="Dana Payment"
+        android:textSize="17sp"
+        android:fontFamily="@font/comfortaa" />
+    <TextView
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:drawableStart="@drawable/gopay"
+        android:drawablePadding="50dp"
+        android:textColor="@color/black"
+        android:layout_marginHorizontal="25dp"
+        android:paddingVertical="10dp"
+        android:paddingLeft="45dp"
+        android:background="@drawable/payment_border"
+        android:text="Gopay"
+        android:textSize="17sp"
+        android:fontFamily="@font/comfortaa" />
+    <TextView
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:drawableStart="@drawable/linkaja"
+        android:drawablePadding="50dp"
+        android:textColor="@color/black"
+        android:layout_marginHorizontal="25dp"
+        android:padding="10dp"
+        android:paddingStart="45dp"
+        android:background="@drawable/payment_border"
+        android:text="Link Aja"
+        android:textSize="17sp"
+        android:fontFamily="@font/comfortaa" />
+
+    <TextView
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:textColor="@color/black"
+        android:layout_marginTop="30dp"
+        android:layout_marginHorizontal="25dp"
+        android:paddingStart="30dp"
+        android:padding="15dp"
+        android:background="@drawable/payment_border"
+        android:text="Bank Transfer"
+        android:textSize="22sp"
+        android:fontFamily="@font/comfortaa"
+        />
+    <TextView
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:drawableStart="@drawable/bca"
+        android:paddingStart="20dp"
+        android:drawablePadding="25dp"
+        android:textColor="@color/black"
+        android:layout_marginHorizontal="25dp"
+        android:padding="10dp"
+        android:paddingVertical="13dp"
+        android:background="@drawable/payment_border"
+        android:text="Bank Central Asia"
+        android:textSize="17sp"
+        android:fontFamily="@font/comfortaa" />
+    <TextView
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:drawableStart="@drawable/bri"
+        android:drawablePadding="22dp"
+        android:textColor="@color/black"
+        android:layout_marginHorizontal="25dp"
+        android:paddingLeft="20dp"
+        android:paddingVertical="13dp"
+        android:background="@drawable/payment_border"
+        android:text="Bank BRI"
+        android:textSize="17sp"
+        android:fontFamily="@font/comfortaa" />
+    <TextView
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:drawableStart="@drawable/bni"
+        android:drawablePadding="25dp"
+        android:textColor="@color/black"
+        android:layout_marginHorizontal="25dp"
+        android:paddingVertical="10dp"
+        android:paddingLeft="20dp"
+        android:background="@drawable/payment_border"
+        android:text="Bank BNI"
+        android:textSize="17sp"
+        android:fontFamily="@font/comfortaa" />
+    <TextView
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:drawableStart="@drawable/mandiri"
+        android:drawablePadding="25dp"
+        android:textColor="@color/black"
+        android:layout_marginHorizontal="25dp"
+        android:paddingVertical="10dp"
+        android:paddingLeft="20dp"
+        android:background="@drawable/payment_border"
+        android:text="Bank Mandiri"
+        android:textSize="17sp"
+        android:fontFamily="@font/comfortaa" />
+
+</LinearLayout>

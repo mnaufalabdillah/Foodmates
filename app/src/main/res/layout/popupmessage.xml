@@ -53,7 +53,7 @@
             android:layout_marginEnd="220dp"
             android:layout_marginBottom="5dp"
             android:src="@drawable/mdi_account_circle"
-            android:tint="@color/white"></ImageView>
+            android:tint="@color/white"/>
 
             <TextView
             android:layout_width="wrap_content"
