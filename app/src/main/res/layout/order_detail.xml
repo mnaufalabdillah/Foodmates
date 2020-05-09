@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Order Detail"
+        android:textSize="40sp"
+        android:gravity="center"
+        android:layout_marginTop="70dp"
+        android:textColor="@android:color/black"
+        android:fontFamily="@font/montserrat" />
+
+    <FrameLayout
+        android:id="@+id/shapebackgroudhome"
+        android:layout_width="360dp"
+        android:layout_height="400dp"
+        android:layout_centerInParent="true"
+        android:background="@drawable/roundedbutton"
+        android:backgroundTint="@color/abu">
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="150dp"
+            android:fontFamily="@font/comfortaa"
+            android:text="Notes"
+            android:textColor="@color/white"
+            android:textSize="22sp" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginTop="180dp">
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:background="@drawable/notes_text_border"
+                android:fontFamily="@font/comfortaa"
+                android:gravity="center"
+                android:hint="Your notes here"
+                android:textColor="@color/white"
+                android:textSize="18sp" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <TextView
+            android:id="@+id/total_harga"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginTop="300dp"
+            android:fontFamily="@font/comfortaa"
+            android:text="Total : RpXXX.XXX"
+            android:textColor="@color/white"
+            android:textSize="20sp" />
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="115dp"
+            android:layout_height="121dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="15dp"
+            app:srcCompat="@drawable/mdi_account_circle"
+            android:tint="@color/white"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/comfortaa"
+            android:text="Nama"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            android:layout_marginLeft="150dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginRight="10dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Umurnye"
+            android:textColor="@color/white"
+            android:fontFamily="@font/comfortaa"
+            android:textSize="20sp"
+            android:layout_marginTop="60dp"
+            android:layout_marginStart="150dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Specialistnya"
+            android:textSize="20sp"
+            android:fontFamily="@font/comfortaa"
+            android:textColor="@color/white"
+            android:layout_marginStart="150dp"
+            android:layout_marginTop="90dp"/>
+
+         <TextView
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:text="Status :"
+             android:textSize="18sp"
+             android:fontFamily="@font/comfortaa"
+             android:textColor="@color/white"
+             android:layout_gravity="bottom"
+             android:layout_marginBottom="30dp"
+             android:layout_marginLeft="30dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Accepted"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            android:layout_gravity="bottom"
+            android:layout_marginBottom="30dp"
+            android:layout_marginLeft="105dp"/>
+
+    </FrameLayout>
+
+    <Button
+        android:id="@+id/btn_next"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="70dp"
+        android:background="@drawable/roundedbutton"
+        android:fontFamily="@font/roboto_black"
+        android:text="P A Y"
+        android:textColor="@android:color/white" />
+
+</RelativeLayout>

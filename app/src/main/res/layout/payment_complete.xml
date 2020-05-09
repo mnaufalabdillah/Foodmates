@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/btn_next"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="89dp"
+        android:layout_marginBottom="172dp"
+        android:foregroundGravity="center_horizontal"
+        android:src="@drawable/paymentcomplete" />
+
+    <Button
+        android:id="@+id/btn_next"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="70dp"
+        android:background="@drawable/roundedbutton"
+        android:fontFamily="@font/roboto_black"
+        android:text="N E X T"
+        android:textColor="@android:color/white" />
+
+</RelativeLayout>
