@@ -29,6 +29,7 @@
         android:fontFamily="@font/comfortaa"
         />
     <TextView
+        android:id="@+id/ovo_payment"
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
         android:drawableStart="@drawable/ovo"
@@ -42,6 +43,7 @@
         android:textSize="17sp"
         android:fontFamily="@font/comfortaa" />
     <TextView
+        android:id="@+id/dana_payment"
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
         android:drawableStart="@drawable/dana"
@@ -55,6 +57,7 @@
         android:textSize="17sp"
         android:fontFamily="@font/comfortaa" />
     <TextView
+        android:id="@+id/gopay_payment"
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
         android:drawableStart="@drawable/gopay"
@@ -68,6 +71,7 @@
         android:textSize="17sp"
         android:fontFamily="@font/comfortaa" />
     <TextView
+        android:id="@+id/linkaja_payment"
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
         android:drawableStart="@drawable/linkaja"
@@ -95,6 +99,7 @@
         android:fontFamily="@font/comfortaa"
         />
     <TextView
+        android:id="@+id/bca_payment"
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
         android:drawableStart="@drawable/bca"
@@ -109,6 +114,7 @@
         android:textSize="17sp"
         android:fontFamily="@font/comfortaa" />
     <TextView
+        android:id="@+id/bri_payment"
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
         android:drawableStart="@drawable/bri"
@@ -122,6 +128,7 @@
         android:textSize="17sp"
         android:fontFamily="@font/comfortaa" />
     <TextView
+        android:id="@+id/bni_payment"
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
         android:drawableStart="@drawable/bni"
@@ -135,6 +142,7 @@
         android:textSize="17sp"
         android:fontFamily="@font/comfortaa" />
     <TextView
+        android:id="@+id/mandiri_payment"
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
         android:drawableStart="@drawable/mandiri"
@@ -147,5 +155,4 @@
         android:text="Bank Mandiri"
         android:textSize="17sp"
         android:fontFamily="@font/comfortaa" />
-
 </LinearLayout>
