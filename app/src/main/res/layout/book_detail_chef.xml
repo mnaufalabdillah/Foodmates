@@ -8,16 +8,18 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Book Details"
-        android:textSize="40sp"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="30dp"
+        android:fontFamily="@font/montserrat"
         android:gravity="center"
-        android:layout_marginTop="70dp"
+        android:text="Book Details"
         android:textColor="@android:color/black"
-        android:fontFamily="@font/montserrat" />
+        android:textSize="40sp" />
 
     <FrameLayout
         android:id="@+id/shapebackgroudhome"
-        android:layout_width="360dp"
+        android:layout_width="match_parent"
+        android:layout_marginHorizontal="25dp"
         android:layout_height="360dp"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
@@ -27,81 +29,88 @@
         <TableLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
             android:layout_margin="20dp"
-            android:layout_gravity="center_horizontal">
+            android:orientation="horizontal">
+
             <TableRow>
+
                 <TextView
                     android:layout_column="1"
+                    android:fontFamily="@font/comfortaa"
+                    android:gravity="center_horizontal"
+                    android:paddingHorizontal="10dp"
+                    android:paddingVertical="10dp"
                     android:text="DATE"
-                    android:fontFamily="@font/comfortaa"
                     android:textColor="@color/white"
-                    android:textSize="20sp"
-                    android:gravity="center_horizontal"
-                    android:paddingHorizontal="20dp"
-                    android:paddingVertical="10dp"/>
+                    android:textSize="20sp" />
+
                 <TextView
+                    android:layout_width="wrap_content"
                     android:layout_column="2"
-                    android:layout_width="wrap_content"
+                    android:fontFamily="@font/comfortaa"
+                    android:gravity="center_horizontal"
+                    android:paddingHorizontal="10dp"
+                    android:paddingVertical="10dp"
                     android:text="FROM"
-                    android:fontFamily="@font/comfortaa"
                     android:textColor="@color/white"
-                    android:textSize="20sp"
-                    android:gravity="center_horizontal"
-                    android:paddingHorizontal="20dp"
-                    android:paddingVertical="10dp"/>
+                    android:textSize="20sp" />
+
                 <TextView
-                    android:layout_column="3"
                     android:layout_width="wrap_content"
-                    android:text="UNTIL"
+                    android:layout_column="3"
                     android:fontFamily="@font/comfortaa"
-                    android:textColor="@color/white"
-                    android:textSize="20sp"
                     android:gravity="center_horizontal"
-                    android:paddingHorizontal="20dp"
-                    android:paddingVertical="10dp"/>
+                    android:paddingHorizontal="10dp"
+                    android:paddingVertical="10dp"
+                    android:text="UNTIL"
+                    android:textColor="@color/white"
+                    android:textSize="20sp" />
             </TableRow>
+
             <TableRow>
+
                 <EditText
                     android:id="@+id/book_date"
-                    android:layout_column="1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/comfortaa"
-                    android:textColor="@color/white"
-                    android:textSize="15sp"
+                    android:layout_column="1"
                     android:clickable="true"
+                    android:focusable="false"
+                    android:fontFamily="@font/comfortaa"
                     android:gravity="center_horizontal"
                     android:hint="Pick Date"
+                    android:textColor="@color/white"
                     android:textColorHint="#FFFFFF"
-                    android:focusable="false" />
+                    android:textSize="15sp" />
 
                 <EditText
                     android:id="@+id/time_start"
-                    android:layout_column="2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_column="2"
+                    android:clickable="true"
+                    android:focusable="false"
                     android:fontFamily="@font/comfortaa"
-                    android:textColor="@color/white"
-                    android:textSize="15sp"
                     android:gravity="center_horizontal"
                     android:hint="Pick Time"
-                    android:clickable="true"
+                    android:textColor="@color/white"
                     android:textColorHint="@color/white"
-                    android:focusable="false"/>
+                    android:textSize="15sp" />
 
                 <EditText
                     android:id="@+id/time_end"
-                    android:layout_column="3"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_column="3"
+                    android:clickable="true"
+                    android:focusable="false"
                     android:fontFamily="@font/comfortaa"
-                    android:textColor="@color/white"
-                    android:textSize="15sp"
                     android:gravity="center_horizontal"
                     android:hint="Pick Time"
+                    android:textColor="@color/white"
                     android:textColorHint="#FFFFFF"
-                    android:clickable="true"
-                    android:focusable="false"/>
+                    android:textSize="15sp" />
             </TableRow>
         </TableLayout>
 
@@ -152,8 +161,7 @@
         android:layout_alignParentBottom="true"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginBottom="70dp"
+        android:layout_marginBottom="30dp"
         android:background="@drawable/roundedbutton"
         android:fontFamily="@font/roboto_black"
         android:text="B O O K"
