@@ -4,96 +4,100 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".HomeFragment">
+    tools:context=".HomeActivity">
 
     <TextView
+        android:id="@+id/welcometext"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Welcome, "
-        android:textSize="33sp"
+        android:layout_alignParentTop="true"
         android:layout_marginLeft="32dp"
-        android:layout_marginTop="70dp"
+        android:layout_marginTop="32dp"
+        android:fontFamily="@font/montserrat"
+        android:text="Welcome, "
         android:textColor="@android:color/black"
-        android:fontFamily="@font/montserrat" />
+        android:textSize="33sp" />
 
     <TextView
+        android:id="@+id/howlifetext"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@id/welcometext"
+        android:layout_marginLeft="60dp"
+        android:layout_marginTop="5dp"
+        android:fontFamily="@font/montserrat"
         android:text="How is Life?"
-        android:textSize="27sp"
-        android:layout_marginLeft="64dp"
-        android:layout_marginTop="128dp"
         android:textColor="@android:color/black"
-        android:fontFamily="@font/montserrat" />
+        android:textSize="27sp" />
 
     <FrameLayout
         android:id="@+id/shapebackgroudhome"
-        android:layout_width="307dp"
+        android:layout_width="match_parent"
         android:layout_height="345dp"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
+        android:layout_below="@+id/howlifetext"
+        android:layout_marginHorizontal="30dp"
+        android:layout_marginTop="25dp"
         android:background="@drawable/roundedbutton"
-        android:backgroundTint="@color/abu" >
+        android:backgroundTint="@color/abu">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="10dp"
+            android:fontFamily="@font/montserrat"
             android:text="Top Chef"
             android:textColor="@android:color/white"
-            android:textSize="33sp"
-            android:fontFamily="@font/montserrat"
-            android:layout_marginTop="10dp"
-            android:layout_marginStart="20dp"/>
+            android:textSize="33sp" />
 
         <ImageButton
+            android:id="@+id/search_more_chef"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:layout_margin="20dp"
             android:background="@drawable/ic_book_chef"
             android:backgroundTint="@color/white"
-            android:layout_margin="20dp"
-            android:layout_gravity="end"
             android:contentDescription="SearchChef" />
 
         <Button
             android:layout_width="wrap_content"
             android:layout_height="fill_parent"
+            android:layout_marginHorizontal="30dp"
             android:layout_marginTop="80dp"
             android:layout_marginBottom="70dp"
-            android:layout_marginHorizontal="30dp"
-            android:drawableTop="@drawable/mdi_account_circle"
-            android:padding="20dp"
             android:background="@drawable/roundedbutton"
             android:backgroundTint="@color/yellow"
-            />
+            android:drawableTop="@drawable/mdi_account_circle"
+            android:padding="20dp" />
 
         <Button
             android:layout_width="wrap_content"
             android:layout_height="fill_parent"
             android:layout_gravity="end"
             android:layout_marginTop="80dp"
+            android:layout_marginEnd="30dp"
             android:layout_marginBottom="70dp"
-            android:layout_marginHorizontal="30dp"
-            android:drawableTop="@drawable/mdi_account_circle"
-            android:padding="20dp"
             android:background="@drawable/roundedbutton"
             android:backgroundTint="@color/yellow"
-            />
+            android:drawableTop="@drawable/mdi_account_circle"
+            android:padding="20dp" />
 
         <RadioGroup
             android:id="@+id/swipe_chef"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="20dp"
-            android:layout_marginStart="120dp"
             android:layout_gravity="bottom"
+            android:layout_marginBottom="20dp"
+            android:gravity="center_horizontal"
             android:orientation="horizontal">
 
             <RadioButton
                 android:id="@+id/radioSwipe1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:checked="true"
-                android:buttonTint="@color/white" />
+                android:buttonTint="@color/white"
+                android:checked="true" />
 
             <RadioButton
                 android:id="@+id/radioSwipe2"

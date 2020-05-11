@@ -1,15 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     android:background="@drawable/backwhite"
     android:paddingLeft="30dp"
     android:paddingRight="30dp"
     android:paddingTop="60dp"
     tools:context=".UserRegisActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
@@ -167,5 +171,7 @@
         android:background="@drawable/roundedbutton"
         android:fontFamily="@font/roboto_black"
         android:text="S i g n  U p"
+        android:layout_marginBottom="20dp"
         android:textColor="@android:color/white" />
-</LinearLayout>
+    </LinearLayout>
+</ScrollView>

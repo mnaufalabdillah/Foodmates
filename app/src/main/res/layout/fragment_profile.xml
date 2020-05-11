@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -7,21 +7,16 @@
     tools:context=".ProfileFragment">
 
     <!-- TODO: Update blank fragment layout -->
+
     <FrameLayout
         android:id="@+id/profilebackground"
         android:layout_width="match_parent"
-        android:layout_height="390dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="100dp"
-        android:layout_marginEnd="40dp"
-        android:layout_marginBottom="100dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginVertical="64dp"
+        android:layout_marginEnd="25dp"
         android:background="@drawable/roundedbutton"
         android:backgroundTint="@color/yellow">
-
 
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
@@ -122,6 +117,7 @@
             android:layout_marginTop="450dp"
             android:layout_marginLeft="30dp"
             android:layout_marginRight="30dp"
+            android:layout_marginBottom="20dp"
             android:background="@drawable/roundedbutton2"
             android:backgroundTint="@color/black"
             android:text="L o g  o u t"
@@ -151,6 +147,4 @@
             android:src="@drawable/mdi_account_circle" />
 
     </FrameLayout>
-
-
-</RelativeLayout>
+    </ScrollView>
