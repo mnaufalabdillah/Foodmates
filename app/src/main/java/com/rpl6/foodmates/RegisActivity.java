@@ -23,7 +23,8 @@ public class RegisActivity extends AppCompatActivity {
         imgChef.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(RegisActivity.this, "Belom ada gan, sabar", Toast.LENGTH_SHORT).show();
+                Intent i = new Intent(RegisActivity.this, ChefRegisActivity.class);
+                startActivity(i);
             }
         });
 

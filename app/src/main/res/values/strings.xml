@@ -4,4 +4,30 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="select_photo"><u>Select Photo</u></string>
+
+    <string-array name="list_spesialis" >
+        <item>Indonesian Food Specialist</item>
+        <item>Western Food Specialist</item>
+        <item>American Food Specialist</item>
+        <item>Dessert Specialist</item>
+    </string-array>
+    <string-array name="list_skills_chef" >
+        <item>Baking</item>
+        <item>Cleanliness</item>
+        <item>Creativity</item>
+        <item>Culinary Expertise</item>
+        <item>Food Service Management</item>
+        <item>Grilling</item>
+        <item>Heat Control</item>
+        <item>Inventory Management</item>
+        <item>Measuring</item>
+        <item>Menu Design</item>
+        <item>Multitasking</item>
+        <item>Portion Sizing</item>
+        <item>Team Player</item>
+        <item>Supervising</item>
+    </string-array>
+
+
 </resources>

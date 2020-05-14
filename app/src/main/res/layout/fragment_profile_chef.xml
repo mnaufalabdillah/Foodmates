@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:scrollbars="vertical"
+    tools:context=".ProfileFragmentChef">
+
+    <!-- TODO: Update blank fragment layout -->
+
+    <RelativeLayout
+        android:id="@+id/profilebackgroundchef"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="25dp"
+        android:layout_marginHorizontal="25dp"
+        android:background="@drawable/roundedbutton"
+        android:backgroundTint="@color/yellow">
+
+        <ImageView
+            android:id="@+id/imageprofile"
+            android:layout_marginTop="20dp"
+            android:layout_width="75dp"
+            android:layout_height="75dp"
+            android:layout_centerHorizontal="true"
+            android:src="@drawable/mdi_account_circle" />
+
+        <TextView
+            android:id="@+id/textselectphoto"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/imageprofile"
+            android:text="@string/select_photo"
+            android:textColor="@color/black"
+            android:fontFamily="@font/roboto"
+            android:layout_centerHorizontal="true"
+            android:clickable="true"
+            android:focusable="true" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/textnamechef"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textselectphoto"
+            android:layout_marginHorizontal="10dp">
+
+            <EditText
+                android:id="@+id/fullnamechef"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/roboto"
+                android:hint="Full Name"
+                android:inputType="textPersonName"
+                android:textColor="@color/black" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/textemailchef"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textnamechef"
+            android:layout_marginHorizontal="10dp">
+
+            <EditText
+                android:id="@+id/emailchef"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/roboto"
+                android:hint="Email"
+                android:inputType="textEmailAddress"
+                android:textColor="@color/black" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/textpasswordchef"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textemailchef"
+            app:passwordToggleEnabled="true"
+            android:layout_marginHorizontal="10dp">
+
+            <EditText
+                android:id="@+id/passwordchef"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/roboto"
+                android:hint="Password"
+                android:inputType="textPassword"
+                android:textColor="@color/black" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/textaddresschef"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/textpasswordchef"
+            android:layout_marginHorizontal="10dp">
+
+            <EditText
+                android:id="@+id/addresschef"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:fontFamily="@font/roboto"
+                android:gravity="start|top"
+                android:hint="Address"
+                android:inputType="textMultiLine" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/textagechef"
+            android:layout_below="@id/textaddresschef"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="10dp">
+
+            <EditText
+                android:id="@+id/agechef"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:fontFamily="@font/roboto"
+                android:hint="Age"
+                android:inputType="number"
+                tools:layout_editor_absoluteX="83dp"
+                tools:layout_editor_absoluteY="578dp" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <Button
+            android:id="@+id/btn_edit"
+            android:layout_below="@id/textagechef"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="15dp"
+            android:paddingRight="10dp"
+            android:layout_marginTop="10dp"
+            android:drawablePadding="5dp"
+            android:drawableLeft="@drawable/edittt"
+            android:background="@drawable/roundedbutton"
+            android:layout_centerHorizontal="true"
+            android:backgroundTint="@color/white"
+            android:text=" EDIT" />
+
+        <Button
+            android:id="@+id/btn_logout"
+            android:layout_below="@id/btn_edit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginBottom="20dp"
+            android:background="@drawable/roundedbutton2"
+            android:backgroundTint="@color/black"
+            android:text="L o g  o u t"
+            android:textColor="@android:color/white" />
+
+
+    </RelativeLayout>
+</ScrollView>
