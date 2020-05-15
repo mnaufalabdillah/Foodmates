@@ -28,13 +28,13 @@ import java.util.Map;
 
 public class ChefRegisActivity extends AppCompatActivity {
 
-    private EditText name, email, password, c_password, addresschef, phoneNumchef, agechef;
+    private EditText name, email, password, c_password, addresschef, phoneNumchef, agechef, salaryChef;
     private Button btn_regis_chef;
     private RadioGroup pilihjkchef;
     private RadioButton jkdipilihchef;
     private Spinner spesialis, skill_1, skill_2, skill_3;
     private ProgressBar loading;
-    private static String URL_REGIST = "";
+    private static String URL_REGIST = "https://88b57ade.ngrok.io/foodmates/chefregister.php";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,16 +51,18 @@ public class ChefRegisActivity extends AppCompatActivity {
         agechef = findViewById(R.id.agechef);
         pilihjkchef = findViewById(R.id.pilihjkchef);
         btn_regis_chef = findViewById(R.id.btn_regischef);
-        spesialis = findViewById(R.id.spinner_skills_chef);
+        spesialis = findViewById(R.id.spinner_spesialis);
         skill_1 = findViewById(R.id.spinner_skills1);
         skill_2 = findViewById(R.id.spinner_skills2);
         skill_3 = findViewById(R.id.spinner_skills3);
+        salaryChef = findViewById(R.id.salarychef);
 
         btn_regis_chef.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 int selectedId = pilihjkchef.getCheckedRadioButtonId();
                 jkdipilihchef = findViewById(selectedId);
+                Toast.makeText(ChefRegisActivity.this, "Ini Kepencet!", Toast.LENGTH_SHORT).show();
                 Regist();
             }
         });
@@ -78,10 +80,11 @@ public class ChefRegisActivity extends AppCompatActivity {
         final String jenis_kelamin = this.jkdipilihchef.getText().toString().trim();
         final String no_telp = this.phoneNumchef.getText().toString().trim();
         final String alamat = this.addresschef.getText().toString().trim();
-        final String spesialist = spesialis.getSelectedItem().toString().trim();
-        final String skill1 = skill_1.getSelectedItem().toString().trim();
-        final String skill2 = skill_2.getSelectedItem().toString().trim();
-        final String skill3 = skill_3.getSelectedItem().toString().trim();
+        final String spesialist = this.spesialis.getSelectedItem().toString().trim();
+        final String skill1 = this.skill_1.getSelectedItem().toString().trim();
+        final String skill2 = this.skill_2.getSelectedItem().toString().trim();
+        final String skill3 = this.skill_3.getSelectedItem().toString().trim();
+        final String salary = this.salaryChef.getText().toString().trim();
 
 
         StringRequest stringRequest = new StringRequest(Request.Method.POST, URL_REGIST,
@@ -129,10 +132,11 @@ public class ChefRegisActivity extends AppCompatActivity {
                 params.put("jenis_kelamin", jenis_kelamin);
                 params.put("alamat", alamat);
                 params.put("no_telp", no_telp);
-                params.put("spesialist", spesialist);
+                params.put("spesialisasi", spesialist);
                 params.put("skill1", skill1);
                 params.put("skill2", skill2);
                 params.put("skill3", skill3);
+                params.put("salary", salary);
                 return params;
             }
         };

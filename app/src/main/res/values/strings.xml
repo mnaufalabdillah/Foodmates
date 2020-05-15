@@ -12,6 +12,7 @@
         <item>American Food Specialist</item>
         <item>Dessert Specialist</item>
     </string-array>
+
     <string-array name="list_skills_chef" >
         <item>Baking</item>
         <item>Cleanliness</item>
