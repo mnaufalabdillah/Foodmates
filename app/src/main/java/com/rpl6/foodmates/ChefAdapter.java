@@ -1,5 +1,6 @@
 package com.rpl6.foodmates;
 
+import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,12 +11,15 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.List;
 
 public class ChefAdapter extends RecyclerView.Adapter<ChefAdapter.CardViewViewHolder> {
-    private ArrayList<Chef> listChef;
+    private Context mCtx;
+    private List<Chef> chefList;
 
-    public ChefAdapter(ArrayList<Chef> list){
-        this.listChef =  list;
+    public ChefAdapter(Context mCtx, List<Chef> chefList){
+        this.mCtx = mCtx;
+        this.chefList =  chefList;
     }
 
     @NonNull
@@ -27,7 +31,7 @@ public class ChefAdapter extends RecyclerView.Adapter<ChefAdapter.CardViewViewHo
 
     @Override
     public void onBindViewHolder(@NonNull CardViewViewHolder holder, int position) {
-        Chef chef = listChef.get(position);
+        Chef chef = chefList.get(position);
 
         holder.tvNama.setText(chef.getNama());
         holder.tvUmur.setText(Integer.toString(chef.getUmur()));
@@ -37,7 +41,7 @@ public class ChefAdapter extends RecyclerView.Adapter<ChefAdapter.CardViewViewHo
 
     @Override
     public int getItemCount() {
-        return listChef.size();
+        return chefList.size();
     }
 
     public class CardViewViewHolder extends RecyclerView.ViewHolder {

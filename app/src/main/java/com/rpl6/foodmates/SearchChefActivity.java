@@ -6,12 +6,25 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
 
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
+
+import org.json.JSONArray;
+import org.json.JSONObject;
+
 import java.util.ArrayList;
+import java.util.List;
 
 public class SearchChefActivity extends AppCompatActivity {
 
     private RecyclerView rvChef;
-    private ArrayList<Chef> list = new ArrayList<>();
+    List<Chef> chefList;
+
+    private static final String URL = "https://f3e00244.ngrok.io/foodmates/readchef.php";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,14 +33,55 @@ public class SearchChefActivity extends AppCompatActivity {
 
         rvChef = findViewById(R.id.recycler_search_chef);
         rvChef.setHasFixedSize(true);
+        rvChef.setLayoutManager(new LinearLayoutManager(this));
 
-        list.addAll(ChefData.getListData());
-        showRecyclerList();
+        chefList = new ArrayList<>();
+
+        loadChef();
     }
 
+    /*
     private void showRecyclerList(){
         rvChef.setLayoutManager(new LinearLayoutManager(this));
         ChefAdapter listHeroAdapter = new ChefAdapter(list);
         rvChef.setAdapter(listHeroAdapter);
+    }
+     */
+
+    private void loadChef(){
+        StringRequest stringRequest = new StringRequest(Request.Method.GET, URL,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        try {
+                            JSONArray array = new JSONArray(response);
+
+                            for (int i = 0; i < array.length(); i++) {
+                                JSONObject chef = array.getJSONObject(i);
+
+                                chefList.add(new Chef(
+                                        chef.getInt("id"),
+                                        chef.getString("nama"),
+                                        chef.getInt("umur"),
+                                        chef.getString("spesialisasi")
+                                ));
+                            }
+
+                            ChefAdapter adapter = new ChefAdapter(SearchChefActivity.this, chefList);
+                            rvChef.setAdapter(adapter);
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+
+                    }
+                });
+
+        RequestQueue requestQueue = Volley.newRequestQueue(this);
+        requestQueue.add(stringRequest);
     }
 }

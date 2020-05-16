@@ -36,7 +36,7 @@ public class LoginActivity extends AppCompatActivity {
     private RadioGroup pilihakun;
     private RadioButton akundipilih;
     private ProgressBar loading;
-    private static String URL_LOGIN = "https://88b57ade.ngrok.io/foodmates/login.php";
+    private static String URL_LOGIN = "https://f3e00244.ngrok.io/foodmates/login.php";
     SessionManager sessionManager;
 
     @Override
