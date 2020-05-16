@@ -2,7 +2,10 @@ package com.rpl6.foodmates;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -19,6 +22,7 @@ import org.json.JSONObject;
 public class ChefDetail extends AppCompatActivity {
 
     private TextView tvNama, tvUmur, tvSpesialisasi, tvSkill1, tvSkill2, tvSkill3, tvSalary;
+    private Button btnNext;
 
     private static final String URL = "https://f3e00244.ngrok.io/foodmates/readchef.php";
 
@@ -34,8 +38,16 @@ public class ChefDetail extends AppCompatActivity {
         tvSkill2 = findViewById(R.id.tvSkill2);
         tvSkill3 = findViewById(R.id.tvSkill3);
         tvSalary = findViewById(R.id.tvSalary);
+        btnNext = findViewById(R.id.btn_nextdetails);
 
         loadChef();
+        btnNext.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(ChefDetail.this, BookDetailActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
     private void loadChef(){

@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    tools:context=".BookDetailActivity">
 
     <TextView
         android:layout_width="match_parent"
@@ -69,48 +70,59 @@
             </TableRow>
 
             <TableRow>
-
-                <EditText
-                    android:id="@+id/book_date"
+                <com.google.android.material.textfield.TextInputLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_column="1"
-                    android:clickable="true"
-                    android:focusable="false"
-                    android:fontFamily="@font/comfortaa"
-                    android:gravity="center_horizontal"
-                    android:hint="Pick Date"
-                    android:textColor="@color/white"
-                    android:textColorHint="#FFFFFF"
-                    android:textSize="15sp" />
+                    android:layout_column="1">
+                    <EditText
+                        android:id="@+id/book_date"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:clickable="true"
+                        android:focusable="false"
+                        android:fontFamily="@font/comfortaa"
+                        android:gravity="center_horizontal"
+                        android:hint="Pick Date"
+                        android:textColor="@color/white"
+                        android:textColorHint="#FFFFFF"
+                        android:textSize="15sp" />
+                </com.google.android.material.textfield.TextInputLayout>
 
-                <EditText
-                    android:id="@+id/time_start"
+                <com.google.android.material.textfield.TextInputLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_column="2"
-                    android:clickable="true"
-                    android:focusable="false"
-                    android:fontFamily="@font/comfortaa"
-                    android:gravity="center_horizontal"
-                    android:hint="Pick Time"
-                    android:textColor="@color/white"
-                    android:textColorHint="@color/white"
-                    android:textSize="15sp" />
+                    android:layout_column="2">
+                    <EditText
+                        android:id="@+id/time_start"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:clickable="true"
+                        android:focusable="false"
+                        android:fontFamily="@font/comfortaa"
+                        android:gravity="center_horizontal"
+                        android:hint="Pick Time"
+                        android:textColor="@color/white"
+                        android:textColorHint="@color/white"
+                        android:textSize="15sp" />
+                </com.google.android.material.textfield.TextInputLayout>
 
-                <EditText
-                    android:id="@+id/time_end"
+                <com.google.android.material.textfield.TextInputLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_column="3"
-                    android:clickable="true"
-                    android:focusable="false"
-                    android:fontFamily="@font/comfortaa"
-                    android:gravity="center_horizontal"
-                    android:hint="Pick Time"
-                    android:textColor="@color/white"
-                    android:textColorHint="#FFFFFF"
-                    android:textSize="15sp" />
+                    android:layout_column="3">
+                    <EditText
+                        android:id="@+id/time_end"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:clickable="true"
+                        android:focusable="false"
+                        android:fontFamily="@font/comfortaa"
+                        android:gravity="center_horizontal"
+                        android:hint="Pick Time"
+                        android:textColor="@color/white"
+                        android:textColorHint="#FFFFFF"
+                        android:textSize="15sp" />
+                </com.google.android.material.textfield.TextInputLayout>
             </TableRow>
         </TableLayout>
 
@@ -140,18 +152,30 @@
                 android:layout_width="match_parent"/>
         </com.google.android.material.textfield.TextInputLayout>
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="300dp"
+            android:gravity="right"
+            android:layout_marginHorizontal="20dp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Total : Rp"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            android:fontFamily="@font/comfortaa"/>
+
         <TextView
             android:id="@+id/total_harga"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Total : RpXXX.XXX"
+            android:text="XXX.XXX"
             android:textColor="@color/white"
             android:textSize="20sp"
-            android:fontFamily="@font/comfortaa"
-            android:layout_gravity="right"
-            android:layout_marginTop="300dp"
-            android:layout_marginHorizontal="20dp"
-            />
+            android:fontFamily="@font/comfortaa"/>
+        </LinearLayout>
     </FrameLayout>
 
     <Button
