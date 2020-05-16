@@ -1,10 +1,12 @@
 package com.rpl6.foodmates;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -30,12 +32,21 @@ public class ChefAdapter extends RecyclerView.Adapter<ChefAdapter.CardViewViewHo
     }
 
     @Override
-    public void onBindViewHolder(@NonNull CardViewViewHolder holder, int position) {
-        Chef chef = chefList.get(position);
+    public void onBindViewHolder(@NonNull final CardViewViewHolder holder, int position) {
+        final Chef chef = chefList.get(position);
 
         holder.tvNama.setText(chef.getNama());
         holder.tvUmur.setText(Integer.toString(chef.getUmur()));
         holder.tvSpesialisasi.setText(chef.getSpesialisasi());
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(holder.itemView.getContext(), "Kamu memilih " + chefList.get(holder.getAdapterPosition()).getNama(), Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(v.getContext(), ChefDetail.class);
+                intent.putExtra("id", chefList.get(holder.getAdapterPosition()).getId());
+                mCtx.startActivity(intent);
+            }
+        });
 
     }
 

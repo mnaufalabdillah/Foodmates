@@ -11,7 +11,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".SearchChefActivity"></activity>
+        <activity android:name=".ChefDetail"></activity>
+        <activity android:name=".SearchChefActivity" />
         <activity android:name=".UserRegisActivity" />
         <activity android:name=".ChefRegisActivity" />
         <activity android:name=".RegisActivity" />

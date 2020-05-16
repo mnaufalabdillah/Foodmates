@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    tools:context=".ChefDetail">
 
     <TextView
         android:layout_width="match_parent"
@@ -33,6 +35,7 @@
             android:tint="@color/white"/>
 
         <TextView
+            android:id="@+id/tvNama"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Nama Chef"
@@ -44,6 +47,7 @@
             android:layout_marginStart="105dp"/>
 
         <TextView
+            android:id="@+id/tvUmur"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Umurnye"
@@ -54,6 +58,7 @@
             android:layout_marginStart="105dp"/>
 
         <TextView
+            android:id="@+id/tvSpesialisasi"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Spesialist Apa"
@@ -77,6 +82,7 @@
                     android:textColor="@color/white"
                     android:textSize="18sp"/>
                 <TextView
+                    android:id="@+id/tvSkill1"
                     android:layout_column="2"
                     android:layout_width="wrap_content"
                     android:text="First Skill"
@@ -92,6 +98,7 @@
                     android:textColor="@color/white"
                     android:textSize="18sp"/>
                 <TextView
+                    android:id="@+id/tvSkill2"
                     android:layout_column="2"
                     android:layout_width="wrap_content"
                     android:text="Second Skill"
@@ -107,6 +114,7 @@
                     android:textColor="@color/white"
                     android:textSize="18sp"/>
                 <TextView
+                    android:id="@+id/tvSkill3"
                     android:layout_column="2"
                     android:layout_width="wrap_content"
                     android:text="Third Skill"
@@ -124,12 +132,21 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Salary/Hour : Rp.XXX.XXX"
+                android:text="Salary/Hour: $"
                 android:textColor="@android:color/white"
                 android:textSize="15sp"
                 android:fontFamily="@font/comfortaa"
                 android:layout_marginTop="300dp"
                 android:layout_marginStart="20dp"/>
+            <TextView
+                android:id="@+id/tvSalary"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="2500"
+                android:textColor="@android:color/white"
+                android:textSize="15sp"
+                android:fontFamily="@font/comfortaa"
+                android:layout_marginTop="300dp"/>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -141,8 +158,7 @@
                 android:drawableTint="@color/yellow"
                 android:fontFamily="@font/comfortaa"
                 android:layout_marginTop="300dp"
-                android:layout_marginStart="10dp" />
-
+                android:layout_marginStart="30dp" />
         </LinearLayout>
     </FrameLayout>
 
