@@ -30,7 +30,7 @@ public class UserDetail extends AppCompatActivity {
     String getId;
     private TextView fullname;
     private EditText Email, Password, Alamat, Umur;
-    private static final String URL = "http://f71e4b44.ngrok.io/foodmates/userdetail.php";
+    private static final String URL = "http://fac0fd18.ngrok.io/foodmates/userdetail.php";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

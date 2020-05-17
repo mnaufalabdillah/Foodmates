@@ -23,8 +23,8 @@
         android:layout_gravity="center">
         <ImageView
             android:id="@+id/imgUser"
-            android:layout_width="200dp"
-            android:layout_height="200dp"
+            android:layout_width="170dp"
+            android:layout_height="170dp"
             android:src="@drawable/user"/>
         <TextView
             android:layout_width="wrap_content"
@@ -42,8 +42,8 @@
         android:layout_gravity="center">
         <ImageView
             android:id="@+id/imgChef"
-            android:layout_width="200dp"
-            android:layout_height="200dp"
+            android:layout_width="170dp"
+            android:layout_height="170dp"
             android:src="@drawable/chef"/>
         <TextView
             android:layout_width="wrap_content"

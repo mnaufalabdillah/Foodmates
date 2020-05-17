@@ -1,8 +1,12 @@
 package com.rpl6.foodmates;
+import android.Manifest;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.annotation.Nullable;
+import androidx.core.app.ActivityCompat;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -48,6 +52,7 @@ public class OrderFragment extends Fragment {
         rvPastOrd.setAdapter(orderFragmentAdapter1);
 
         Button pending = (Button) v.findViewById(R.id.btn_pending);
+
         pending.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -57,6 +62,7 @@ public class OrderFragment extends Fragment {
         });
         return v;
 
+
         /*
         sessionManager = new SessionManager(v.getContext());
         HashMap<String, String> user = sessionManager.getUserDetail();
@@ -64,6 +70,8 @@ public class OrderFragment extends Fragment {
         loadActiveOrd(emailuser);
         */
     }
+
+
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -78,6 +86,8 @@ public class OrderFragment extends Fragment {
         listPastOrd.add(new Chef(3, "Helcurt", 39, "Assasin Specialist"));
         listPastOrd.add(new Chef(4, "Bambang", 17, "All Role Specialist"));
     }
+
+
 
     /*   private void loadActiveOrd(final String emailuser) {
         StringRequest stringRequest = new StringRequest(Request.Method.POST, URL,
