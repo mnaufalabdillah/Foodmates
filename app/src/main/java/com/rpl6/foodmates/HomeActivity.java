@@ -34,7 +34,7 @@ public class HomeActivity extends AppCompatActivity {
 
     SessionManager sessionManager;
     String nama;
-    private static String URL = "https://b3142241.ngrok.io/foodmates/userdetail.php";
+    private static String URL = "https://38fa0bee.ngrok.io/foodmates/userdetail.php";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
