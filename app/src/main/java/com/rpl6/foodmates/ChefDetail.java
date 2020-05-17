@@ -46,8 +46,10 @@ public class ChefDetail extends AppCompatActivity {
         btnNext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                int extraId = getIntent().getIntExtra("id", 0);
                 Intent intent = new Intent(ChefDetail.this, BookDetailActivity.class);
                 intent.putExtra("salary", extraSalary);
+                intent.putExtra("id", extraId);
                 startActivity(intent);
             }
         });

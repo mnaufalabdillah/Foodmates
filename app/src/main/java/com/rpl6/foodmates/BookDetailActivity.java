@@ -16,13 +16,26 @@ import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
+import com.android.volley.AuthFailureError;
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 import org.w3c.dom.Text;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.Locale;
+import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
 import static com.rpl6.foodmates.R.color.abuabu;
@@ -33,9 +46,17 @@ public class BookDetailActivity extends AppCompatActivity {
     Calendar waktuAwal = Calendar.getInstance();
     Calendar waktuAkhir = Calendar.getInstance();
 
+    SessionManager sessionManager;
+    String email;
+    String idp, idc;
+    int totalHarga;
+    private static String URL = "https://b3142241.ngrok.io/foodmates/userdetail.php";
+    private static String URL_Payment = "https://b3142241.ngrok.io/foodmates/payment.php";
+
     private EditText edtDate, edtStart, edtEnd;
     private Button btnBook;
     private TextView tvTotal;
+
 
     private TextWatcher textWatcher = new TextWatcher() {
         @Override
@@ -71,6 +92,9 @@ public class BookDetailActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_book_detail);
 
+        sessionManager = new SessionManager(this);
+        email = sessionManager.getUserDetail().get("EMAIL");
+
         edtDate = findViewById(R.id.book_date);
         edtStart = findViewById(R.id.time_start);
         edtEnd = findViewById(R.id.time_end);
@@ -91,6 +115,7 @@ public class BookDetailActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Toast.makeText(BookDetailActivity.this, "Halo", Toast.LENGTH_SHORT).show();
+                Order();
             }
         });
 
@@ -179,10 +204,12 @@ public class BookDetailActivity extends AppCompatActivity {
         if(hour > 0){
             if(min > 1){
                 total = (hour + 1) * extraSalary;
+                totalHarga = (hour + 1) * extraSalary;
                 tvTotal.setText(Integer.toString(total));
                 return true;
             } else{
                 total = hour * extraSalary;
+                totalHarga = hour * extraSalary;
                 tvTotal.setText(Integer.toString(total));
                 return true;
             }
@@ -195,5 +222,88 @@ public class BookDetailActivity extends AppCompatActivity {
         }
     }
 
+    private void UserDetail(final String email) {
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, URL,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        try {
+                            JSONObject jsonObject = new JSONObject(response);
+                            String success = jsonObject.getString("success");
+                            JSONArray jsonArray = jsonObject.getJSONArray("detail");
 
+                            if(success.equals("1")){
+                                for(int i=0; i<jsonArray.length(); i++){
+                                    JSONObject object = jsonArray.getJSONObject(i);
+
+                                    String id = object.getString("id").trim();
+
+                                    Toast.makeText(BookDetailActivity.this, id, Toast.LENGTH_SHORT).show();
+                                }
+                            }
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                            Toast.makeText(BookDetailActivity.this, "Error "+e.toString(), Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        Toast.makeText(BookDetailActivity.this, "Error "+error.toString(), Toast.LENGTH_SHORT).show();
+                    }
+                })
+        {
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+                Map<String, String> params = new HashMap<>();
+                params.put("email", email);
+                return params;
+            }
+        };
+
+        RequestQueue requestQueue = Volley.newRequestQueue(this);
+        requestQueue.add(stringRequest);
+    }
+
+    private void Order() {
+        final String totalHarga = String.valueOf(this.totalHarga);
+        final String status = "pending".trim();
+
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, URL_Payment,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        try {
+                            JSONObject jsonObject = new JSONObject(response);
+                            String success = jsonObject.getString("success");
+
+                            if(success.equals("1")){
+                                Toast.makeText(BookDetailActivity.this, "Order Success!", Toast.LENGTH_SHORT).show();
+                            }
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                            Toast.makeText(BookDetailActivity.this, "Error "+e.toString(), Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        Toast.makeText(BookDetailActivity.this, "Error "+error.toString(), Toast.LENGTH_SHORT).show();
+                    }
+                })
+        {
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+                Map<String, String> params = new HashMap<>();
+                params.put("total_harga", totalHarga);
+                params.put("payment_status", status);
+                return params;
+            }
+        };
+
+        RequestQueue requestQueue = Volley.newRequestQueue(this);
+        requestQueue.add(stringRequest);
+    }
 }
