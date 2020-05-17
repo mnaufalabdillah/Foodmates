@@ -8,6 +8,10 @@
 
     <!-- TODO: Update blank fragment layout -->
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
     <FrameLayout
         android:id="@+id/profilebackground"
         android:layout_width="match_parent"
@@ -43,7 +47,7 @@
             android:layout_marginEnd="10dp">
 
             <EditText
-                android:id="@+id/email"
+                android:id="@+id/Email"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/roboto"
@@ -61,7 +65,7 @@
             android:layout_marginEnd="10dp">
 
             <EditText
-                android:id="@+id/password"
+                android:id="@+id/Password"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/roboto"
@@ -78,7 +82,7 @@
             android:layout_marginEnd="10dp">
 
             <EditText
-                android:id="@+id/address"
+                android:id="@+id/Alamat"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
@@ -98,7 +102,7 @@
             android:layout_marginEnd="10dp">
 
             <EditText
-                android:id="@+id/age"
+                android:id="@+id/Umur"
                 android:layout_width="100dp"
                 android:layout_height="wrap_content"
                 android:ems="10"
@@ -146,5 +150,6 @@
             android:layout_gravity="center_horizontal"
             android:src="@drawable/mdi_account_circle" />
 
-    </FrameLayout>
-    </ScrollView>
+        </FrameLayout>
+    </LinearLayout>
+</ScrollView>
