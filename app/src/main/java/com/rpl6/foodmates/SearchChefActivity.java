@@ -5,6 +5,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
+import android.widget.Toast;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -24,7 +25,7 @@ public class SearchChefActivity extends AppCompatActivity {
     private RecyclerView rvChef;
     List<Chef> chefList;
 
-    private static final String URL = "https://b3142241.ngrok.io/foodmates/readchef.php";
+    private static final String URL = "https://820a0336.ngrok.io/foodmates/readchef.php";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -71,13 +72,14 @@ public class SearchChefActivity extends AppCompatActivity {
                             rvChef.setAdapter(adapter);
                         } catch (Exception e) {
                             e.printStackTrace();
+                            Toast.makeText(SearchChefActivity.this, "Error "+e.toString(), Toast.LENGTH_SHORT).show();
                         }
                     }
                 },
                 new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
-
+                        Toast.makeText(SearchChefActivity.this, "Error "+error.toString(), Toast.LENGTH_SHORT).show();
                     }
                 });
 

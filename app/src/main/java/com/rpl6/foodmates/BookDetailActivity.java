@@ -43,17 +43,19 @@ import static com.rpl6.foodmates.R.color.abuabu;
 public class BookDetailActivity extends AppCompatActivity {
 
     final Calendar myCalendar = Calendar.getInstance();
+    Calendar tanggal = Calendar.getInstance();
     Calendar waktuAwal = Calendar.getInstance();
     Calendar waktuAkhir = Calendar.getInstance();
 
     SessionManager sessionManager;
-    String email;
-    String idp, idc;
+    String email, idc, idp;
+    int idpay;
     int totalHarga;
-    private static String URL = "https://b3142241.ngrok.io/foodmates/userdetail.php";
-    private static String URL_Payment = "https://b3142241.ngrok.io/foodmates/payment.php";
+    private static String URL = "https://820a0336.ngrok.io/foodmates/userdetail.php";
+    private static String URL_Payment = "https://820a0336.ngrok.io/foodmates/payment.php";
+    private static String URL_Order = "https://820a0336.ngrok.io/foodmates/postorder.php";
 
-    private EditText edtDate, edtStart, edtEnd;
+    private EditText edtDate, edtStart, edtEnd, edtNotes;
     private Button btnBook;
     private TextView tvTotal;
 
@@ -95,11 +97,14 @@ public class BookDetailActivity extends AppCompatActivity {
         sessionManager = new SessionManager(this);
         email = sessionManager.getUserDetail().get("EMAIL");
 
+        UserDetail(email);
+
         edtDate = findViewById(R.id.book_date);
         edtStart = findViewById(R.id.time_start);
         edtEnd = findViewById(R.id.time_end);
         btnBook = findViewById(R.id.btn_book);
         tvTotal = findViewById(R.id.total_harga);
+        edtNotes = findViewById(R.id.edtNotes);
 
         btnBook.setEnabled(false);
         btnBook.setBackgroundResource(R.drawable.buttondisable);
@@ -115,6 +120,7 @@ public class BookDetailActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Payment();
+                Order();
             }
         });
 
@@ -124,6 +130,9 @@ public class BookDetailActivity extends AppCompatActivity {
             public void onDateSet(DatePicker view, int year, int monthOfYear,
                                   int dayOfMonth) {
                 // TODO Auto-generated method stub
+                tanggal.set(Calendar.YEAR, year);
+                tanggal.set(Calendar.MONTH, monthOfYear);
+                tanggal.set(Calendar.DAY_OF_MONTH, dayOfMonth);
                 myCalendar.set(Calendar.YEAR, year);
                 myCalendar.set(Calendar.MONTH, monthOfYear);
                 myCalendar.set(Calendar.DAY_OF_MONTH, dayOfMonth);
@@ -236,6 +245,7 @@ public class BookDetailActivity extends AppCompatActivity {
                                     JSONObject object = jsonArray.getJSONObject(i);
 
                                     String id = object.getString("id").trim();
+                                    idp = object.getString("id").trim();
 
                                     Toast.makeText(BookDetailActivity.this, id, Toast.LENGTH_SHORT).show();
                                 }
@@ -278,6 +288,7 @@ public class BookDetailActivity extends AppCompatActivity {
                             JSONObject jsonObject = new JSONObject(response);
                             String success = jsonObject.getString("success");
                             int id = jsonObject.getInt("id");
+                            idpay = jsonObject.getInt("id");
 
                             if(success.equals("1")){
                                 Toast.makeText(BookDetailActivity.this, "Payment Pending!" + id, Toast.LENGTH_SHORT).show();
@@ -301,6 +312,61 @@ public class BookDetailActivity extends AppCompatActivity {
                 params.put("total_harga", totalHarga);
                 params.put("payment_status", status);
                 params.put("userEmail", email);
+                return params;
+            }
+        };
+
+        RequestQueue requestQueue = Volley.newRequestQueue(this);
+        requestQueue.add(stringRequest);
+    }
+
+    private void Order() {
+        SimpleDateFormat fmt1 = new SimpleDateFormat("yyyy-MM-dd");
+        SimpleDateFormat fmt2 = new SimpleDateFormat("HH:mm:ss");
+        final String userid = String.valueOf(this.idp);
+        final String chefid = String.valueOf(this.getIntent().getIntExtra("idc", 0));
+        final String date = fmt1.format(tanggal.getTime());
+        final String timestart = fmt2.format(waktuAwal.getTime());
+        final String timeend = fmt2.format(waktuAkhir.getTime());
+        final String note = this.edtNotes.getText().toString().trim();
+        final String idpay = String.valueOf(this.idpay);
+        final String status = "pending".trim();
+
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, URL_Order,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        try {
+                            JSONObject jsonObject = new JSONObject(response);
+                            String success = jsonObject.getString("success");
+
+                            if(success.equals("1")){
+                                Toast.makeText(BookDetailActivity.this, "Order Pending! id: ", Toast.LENGTH_SHORT).show();
+                            }
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                            Toast.makeText(BookDetailActivity.this, "Error "+e.toString(), Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        Toast.makeText(BookDetailActivity.this, "Error "+error.toString(), Toast.LENGTH_SHORT).show();
+                    }
+                })
+        {
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+                Map<String, String> params = new HashMap<>();
+                params.put("userid", userid);
+                params.put("chefid", chefid);
+                params.put("date", date);
+                params.put("timestart", timestart);
+                params.put("timeend", timeend);
+                params.put("note", note);
+                params.put("idpay", idpay);
+                params.put("status", status);
                 return params;
             }
         };

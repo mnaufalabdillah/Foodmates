@@ -24,7 +24,7 @@ public class ChefDetail extends AppCompatActivity {
     private TextView tvNama, tvUmur, tvSpesialisasi, tvSkill1, tvSkill2, tvSkill3, tvSalary;
     private Button btnNext;
 
-    private static final String URL = "https://b3142241.ngrok.io/foodmates/readchef.php";
+    private static final String URL = "https://820a0336.ngrok.io/foodmates/readchef.php";
 
     private int extraSalary;
 
@@ -49,7 +49,7 @@ public class ChefDetail extends AppCompatActivity {
                 int extraId = getIntent().getIntExtra("id", 0);
                 Intent intent = new Intent(ChefDetail.this, BookDetailActivity.class);
                 intent.putExtra("salary", extraSalary);
-                intent.putExtra("id", extraId);
+                intent.putExtra("idc", extraId);
                 startActivity(intent);
             }
         });
@@ -90,13 +90,14 @@ public class ChefDetail extends AppCompatActivity {
 
                         } catch (Exception e) {
                             e.printStackTrace();
+                            Toast.makeText(ChefDetail.this, "Error "+e.toString(), Toast.LENGTH_SHORT).show();
                         }
                     }
                 },
                 new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
-
+                        Toast.makeText(ChefDetail.this, "Error "+error.toString(), Toast.LENGTH_SHORT).show();
                     }
                 });
 
