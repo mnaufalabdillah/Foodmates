@@ -24,7 +24,9 @@ public class ChefDetail extends AppCompatActivity {
     private TextView tvNama, tvUmur, tvSpesialisasi, tvSkill1, tvSkill2, tvSkill3, tvSalary;
     private Button btnNext;
 
-    private static final String URL = "https://f3e00244.ngrok.io/foodmates/readchef.php";
+    private static final String URL = "https://7e85fc18.ngrok.io/foodmates/readchef.php";
+
+    private int extraSalary;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,6 +47,7 @@ public class ChefDetail extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(ChefDetail.this, BookDetailActivity.class);
+                intent.putExtra("salary", extraSalary);
                 startActivity(intent);
             }
         });
@@ -70,6 +73,7 @@ public class ChefDetail extends AppCompatActivity {
                                     String skill2 = chef.getString("skill2");
                                     String skill3 = chef.getString("skill3");
                                     int salary = chef.getInt("salary");
+                                    extraSalary = chef.getInt("salary");
 
                                     tvNama.setText(nama);
                                     tvUmur.setText(Integer.toString(umur));

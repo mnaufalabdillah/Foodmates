@@ -162,7 +162,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Total : Rp"
+            android:text="Total : $"
             android:textColor="@color/white"
             android:textSize="20sp"
             android:fontFamily="@font/comfortaa"/>
@@ -179,7 +179,7 @@
     </FrameLayout>
 
     <Button
-        android:id="@+id/btn_next"
+        android:id="@+id/btn_book"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
