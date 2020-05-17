@@ -49,12 +49,12 @@ public class BookDetailActivity extends AppCompatActivity {
             if (edtStart.getText().length() > 0 && edtEnd.getText().length() > 0) {
                 Toast.makeText(BookDetailActivity.this, "From: " + edtStart.getText() + " Until: " + edtEnd.getText(), Toast.LENGTH_SHORT).show();
                 Hitung();
-            }
 
-            if (edtStart.getText().length() > 0 && edtEnd.getText().length() > 0 && edtDate.getText().length() > 0) {
-                btnBook.setEnabled(true);
-                if(btnBook.isEnabled()) {
-                    btnBook.setBackgroundResource(R.drawable.roundedbutton);
+                if (edtStart.getText().length() > 0 && edtEnd.getText().length() > 0 && edtDate.getText().length() > 0 && Hitung()) {
+                    btnBook.setEnabled(true);
+                    if (btnBook.isEnabled()) {
+                        btnBook.setBackgroundResource(R.drawable.roundedbutton);
+                    }
                 }
             }
 
@@ -166,7 +166,7 @@ public class BookDetailActivity extends AppCompatActivity {
         edtDate.setText(sdf.format(myCalendar.getTime()));
     }
 
-    private void Hitung(){
+    private boolean Hitung(){
         final int extraSalary = getIntent().getIntExtra("salary", 0);
         long diff = waktuAkhir.getTimeInMillis() - waktuAwal.getTimeInMillis();
         long diffInSec = TimeUnit.MILLISECONDS.toSeconds(diff);
@@ -180,14 +180,18 @@ public class BookDetailActivity extends AppCompatActivity {
             if(min > 1){
                 total = (hour + 1) * extraSalary;
                 tvTotal.setText(Integer.toString(total));
+                return true;
             } else{
                 total = hour * extraSalary;
                 tvTotal.setText(Integer.toString(total));
+                return true;
             }
         }else if(hour < 0){
             Toast.makeText(BookDetailActivity.this, "Kebalik", Toast.LENGTH_SHORT).show();
+            return false;
         }else {
             Toast.makeText(BookDetailActivity.this, "Minimal sejam", Toast.LENGTH_SHORT).show();
+            return false;
         }
     }
 
