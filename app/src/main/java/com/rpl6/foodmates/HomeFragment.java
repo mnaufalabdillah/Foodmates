@@ -27,7 +27,7 @@ public class HomeFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view =  inflater.inflate(R.layout.fragment_home, container, false);
-        ImageButton button = (ImageButton) view.findViewById(R.id.search_more_chef);
+        Button button = (Button) view.findViewById(R.id.search_more_chef);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
