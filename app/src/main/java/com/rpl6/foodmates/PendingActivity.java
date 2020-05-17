@@ -3,34 +3,151 @@ package com.rpl6.foodmates;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.util.Log;
+import android.widget.Toast;
 
 
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.android.volley.AuthFailureError;
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class PendingActivity extends AppCompatActivity {
 
+    private static final String TAG = PendingActivity.class.getSimpleName();
     RecyclerView rvPendingOrd;
     List<Chef> listPendingOrd;
+    SessionManager sessionManager;
+    String getEmail;
+    private static final String URL_READPENDING ="https://38fa0bee.ngrok.io/foodmates/read_pendingorders.php";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.fragment_pending);
 
+        sessionManager = new SessionManager(this);
+        HashMap<String, String> user = sessionManager.getUserDetail();
+        getEmail = user.get(sessionManager.EMAIL);
+
         rvPendingOrd = findViewById(R.id.recycler_pendingorders);
+        rvPendingOrd.setLayoutManager(new LinearLayoutManager(this));
 
         listPendingOrd = new ArrayList<>();
-        listPendingOrd.add(new Chef(1, "Kapten", 57, "Mage Specialist"));
-        listPendingOrd.add(new Chef(2, "Franco", 22, "Tank Specialist"));
-        listPendingOrd.add(new Chef(3, "Helcurt", 39, "Assasin Specialist"));
-        listPendingOrd.add(new Chef(4, "Bambang", 17, "All Role Specialist"));
-        OrderFragmentAdapter orderFragmentAdapter2 = new OrderFragmentAdapter(PendingActivity.this, listPendingOrd);
-        rvPendingOrd.setLayoutManager(new LinearLayoutManager(this));
-        rvPendingOrd.setAdapter(orderFragmentAdapter2);
+
+   //   loadPendingOrders(getEmail);
     }
 
+    private void loadPendingOrders() {
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, URL_READPENDING,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        Log.i(TAG, response.toString());
+
+                        try {
+                            JSONObject jsonObject = new JSONObject(response);
+                            String success = jsonObject.getString("success");
+                            JSONArray jsonArray = jsonObject.getJSONArray("read");
+
+                            if (success.equals("1")) {
+
+                                for (int i=0; i<jsonArray.length(); i++) {
+                                    JSONObject object = jsonArray.getJSONObject(i);
+
+                                    listPendingOrd.add(new Chef(
+                                            object.getInt("id"),
+                                            object.getString("nama"),
+                                            object.getInt("umur"),
+                                            object.getString("spesialisasi")
+                                    ));
+                                }
+                                OrderFragmentAdapter adapter = new OrderFragmentAdapter(PendingActivity.this, listPendingOrd);
+                                rvPendingOrd.setAdapter(adapter);
+                            }
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                            Toast.makeText(PendingActivity.this, "Error Reading Orders " + e.toString(), Toast.LENGTH_SHORT).show();
+                        }
+
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        Toast.makeText(PendingActivity.this, "Error Reading Orders " + error.toString(), Toast.LENGTH_SHORT).show();
+                    }
+                })
+        {
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+                Map<String, String> params = new HashMap<>();
+                params.put("email", getEmail);
+                return params;
+            }
+        };
+
+        RequestQueue requestQueue = Volley.newRequestQueue(this);
+        requestQueue.add(stringRequest);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        loadPendingOrders();
+    }
+
+ /*   private void loadPendingOrders(){
+        StringRequest stringRequest = new StringRequest(Request.Method.GET, URL_READPENDING,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        try {
+                            JSONArray array = new JSONArray(response);
+
+                            for (int i = 0; i < array.length(); i++) {
+                                JSONObject pendingorders = array.getJSONObject(i);
+
+                                listPendingOrd.add(new Chef(
+                                        pendingorders.getInt("id"),
+                                        pendingorders.getString("nama"),
+                                        pendingorders.getInt("umur"),
+                                        pendingorders.getString("spesialisasi")
+                                ));
+                            }
+
+                            OrderFragmentAdapter adapter = new OrderFragmentAdapter(PendingActivity.this, listPendingOrd);
+                            rvPendingOrd.setAdapter(adapter);
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+
+                    }
+                });
+
+        RequestQueue requestQueue = Volley.newRequestQueue(this);
+        requestQueue.add(stringRequest);
+    }
+*/
 }
