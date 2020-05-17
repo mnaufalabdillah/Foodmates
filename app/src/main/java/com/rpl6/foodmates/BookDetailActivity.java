@@ -114,8 +114,7 @@ public class BookDetailActivity extends AppCompatActivity {
         btnBook.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(BookDetailActivity.this, "Halo", Toast.LENGTH_SHORT).show();
-                Order();
+                Payment();
             }
         });
 
@@ -266,9 +265,10 @@ public class BookDetailActivity extends AppCompatActivity {
         requestQueue.add(stringRequest);
     }
 
-    private void Order() {
+    private void Payment() {
         final String totalHarga = String.valueOf(this.totalHarga);
         final String status = "pending".trim();
+        final String email = this.email.trim();
 
         StringRequest stringRequest = new StringRequest(Request.Method.POST, URL_Payment,
                 new Response.Listener<String>() {
@@ -277,9 +277,10 @@ public class BookDetailActivity extends AppCompatActivity {
                         try {
                             JSONObject jsonObject = new JSONObject(response);
                             String success = jsonObject.getString("success");
+                            int id = jsonObject.getInt("id");
 
                             if(success.equals("1")){
-                                Toast.makeText(BookDetailActivity.this, "Order Success!", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(BookDetailActivity.this, "Payment Pending!" + id, Toast.LENGTH_SHORT).show();
                             }
                         } catch (JSONException e) {
                             e.printStackTrace();
@@ -299,6 +300,7 @@ public class BookDetailActivity extends AppCompatActivity {
                 Map<String, String> params = new HashMap<>();
                 params.put("total_harga", totalHarga);
                 params.put("payment_status", status);
+                params.put("userEmail", email);
                 return params;
             }
         };
