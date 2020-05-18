@@ -30,7 +30,7 @@ public class UserDetail extends AppCompatActivity {
     String getId;
     private TextView fullname;
     private EditText Email, Password, Alamat, Umur;
-    private static final String URL = "http://fac0fd18.ngrok.io/foodmates/userdetail.php";
+    private static final String URL = "https://2cd89337.ngrok.io/foodmates/userdetail.php";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,7 +39,6 @@ public class UserDetail extends AppCompatActivity {
 
         fullname = findViewById(R.id.fullname);
         Email = findViewById(R.id.Email);
-        Password = findViewById(R.id.Password);
         Alamat = findViewById(R.id.Alamat);
         Umur = findViewById(R.id.Umur);
         getUserDetail();
@@ -71,13 +70,11 @@ public class UserDetail extends AppCompatActivity {
 
                                     String strName = object.getString("nama").trim();
                                     String strEmail = object.getString("email").trim();
-                                    String strPassword = object.getString("password").trim();
                                     int intUmur = object.getInt("umur");
                                     String strAlamat = object.getString("email").trim();
 
                                     fullname.setText(strName);
                                     Email.setText(strEmail);
-                                    Password.setText(strPassword);
                                     Umur.setText(Integer.toString(intUmur));
                                     Alamat.setText(strAlamat);
 

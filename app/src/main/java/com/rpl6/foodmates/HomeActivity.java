@@ -34,7 +34,7 @@ public class HomeActivity extends AppCompatActivity {
 
     SessionManager sessionManager;
     String nama;
-    private static String URL = "https://83bf906c.ngrok.io/foodmates/userdetail.php";
+    private static String URL = "https://739840cd.ngrok.io/foodmates/userdetail.php";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -96,7 +96,7 @@ public class HomeActivity extends AppCompatActivity {
                                 for(int i=0; i<jsonArray.length(); i++){
                                     JSONObject object = jsonArray.getJSONObject(i);
 
-                                    String email = object.getString("name").trim();
+                                    String email = object.getString("nama").trim();
 
                                     Toast.makeText(HomeActivity.this, email, Toast.LENGTH_SHORT).show();
                                 }
