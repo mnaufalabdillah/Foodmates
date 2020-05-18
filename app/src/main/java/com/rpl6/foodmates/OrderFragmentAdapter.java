@@ -4,6 +4,7 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -47,7 +48,8 @@ public class OrderFragmentAdapter extends RecyclerView.Adapter<OrderFragmentAdap
 
     public static class OrderViewHolder extends RecyclerView.ViewHolder {
         private TextView tvorder_nama, tvorder_umur, tvorder_spesialisasi;
-        private AppCompatImageView imgorder_photo, imgorder_call;
+        private AppCompatImageView imgorder_photo;
+        private ImageView imgorder_call;
 
         public OrderViewHolder(View orderView) {
             super(orderView);

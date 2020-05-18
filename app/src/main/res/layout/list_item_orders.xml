@@ -57,7 +57,7 @@
         </LinearLayout>
 
     </LinearLayout>
-    <androidx.appcompat.widget.AppCompatImageView
+    <ImageView
         android:id="@+id/order_hubungichef"
         android:layout_width="50dp"
         android:layout_height="50dp"
