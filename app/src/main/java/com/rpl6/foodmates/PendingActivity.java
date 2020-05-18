@@ -51,7 +51,6 @@ public class PendingActivity extends AppCompatActivity {
 
         listPendingOrd = new ArrayList<>();
 
-   //   loadPendingOrders(getEmail);
     }
 
     private void loadPendingOrders() {
@@ -113,41 +112,4 @@ public class PendingActivity extends AppCompatActivity {
         loadPendingOrders();
     }
 
- /*   private void loadPendingOrders(){
-        StringRequest stringRequest = new StringRequest(Request.Method.GET, URL_READPENDING,
-                new Response.Listener<String>() {
-                    @Override
-                    public void onResponse(String response) {
-                        try {
-                            JSONArray array = new JSONArray(response);
-
-                            for (int i = 0; i < array.length(); i++) {
-                                JSONObject pendingorders = array.getJSONObject(i);
-
-                                listPendingOrd.add(new Chef(
-                                        pendingorders.getInt("id"),
-                                        pendingorders.getString("nama"),
-                                        pendingorders.getInt("umur"),
-                                        pendingorders.getString("spesialisasi")
-                                ));
-                            }
-
-                            OrderFragmentAdapter adapter = new OrderFragmentAdapter(PendingActivity.this, listPendingOrd);
-                            rvPendingOrd.setAdapter(adapter);
-                        } catch (JSONException e) {
-                            e.printStackTrace();
-                        }
-                    }
-                },
-                new Response.ErrorListener() {
-                    @Override
-                    public void onErrorResponse(VolleyError error) {
-
-                    }
-                });
-
-        RequestQueue requestQueue = Volley.newRequestQueue(this);
-        requestQueue.add(stringRequest);
-    }
-*/
 }
