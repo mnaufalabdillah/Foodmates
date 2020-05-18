@@ -64,7 +64,6 @@
         android:background="@drawable/telp"
         android:layout_gravity="center|end"
         android:layout_marginRight="20dp"
-        android:padding="10dp"
-        android:onClick="onDialButton"/>
+        android:padding="10dp" />
 
 </androidx.cardview.widget.CardView>
