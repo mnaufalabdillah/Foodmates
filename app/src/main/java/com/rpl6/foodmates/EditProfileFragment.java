@@ -33,7 +33,7 @@ import java.util.Map;
 public class EditProfileFragment extends Fragment {
 
     private static final String TAG = EditProfileFragment.class.getSimpleName();
-    private Button save;
+    private Button btn_logout, save;
     SessionManager sessionManager;
     String getemail;
     private EditText editnama, editemail, editalamat, editumur;
@@ -54,6 +54,8 @@ public class EditProfileFragment extends Fragment {
         editalamat = view.findViewById(R.id.Alamat);
         editumur = view.findViewById(R.id.Umur);
         save = view.findViewById(R.id.btn_save);
+        btn_logout = view.findViewById(R.id.btn_logout);
+        btn_logout.setVisibility(View.GONE);
 
         getUserDetail();
 

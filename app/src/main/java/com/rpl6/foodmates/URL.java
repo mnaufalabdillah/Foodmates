@@ -17,6 +17,7 @@ public class URL {
     public static String Order = URL + "/foodmates/postorder.php";
 
     public static String UpdateUser = URL + "/foodmates/updateuserdetail.php";
+    public static String UpdateChef = URL + "/foodmates/updatechefdetail.php";
 
     public static String ActiveOrder = URL + "/foodmates/read_activeorder.php";
     public static String PastOrder = URL + "/foodmates/read_pastorder.php";

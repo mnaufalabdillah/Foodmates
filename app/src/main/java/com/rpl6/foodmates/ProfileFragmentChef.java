@@ -75,7 +75,7 @@ public class ProfileFragmentChef extends Fragment {
             @Override
             public void onClick(View view) {
                 FragmentTransaction t = getFragmentManager().beginTransaction();
-                Fragment editFrag = new EditProfileFragment();
+                Fragment editFrag = new EditProfileFragmentChef();
                 t.replace(R.id.fragment_container_chef, editFrag);
                 t.commit();
             }
