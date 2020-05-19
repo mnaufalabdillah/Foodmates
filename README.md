@@ -33,14 +33,23 @@ User dari aplikasi ini adalah masyarakat
 
 ## Use Case Description
 
-
+![](Image/use%20case%202.jpg)
+![](Image/use%20case%203.jpg)
+![](Image/use%20case%204.jpg)
+![](Image/use%20case%205.jpg)
+![](Image/use%20case%206.jpg)
 ## Activity Diagram
-
+![](Image/Use%20Case%20RPL-AD%20Komunikasi.jpg)
+![](Image/Use%20Case%20RPL-AD%20Memasukkan%20Informasi%20Jasa.jpg)
+![](Image/Use%20Case%20RPL-AD%20Memberikan%20Rating.jpg)
+![](Image/Use%20Case%20RPL-AD%20Memesan%20Jasa.jpg)
+![](Image/Use%20Case%20RPL-AD%20Komunikasi.jpg)
+![](Image/Use%20Case%20RPL-AD%20Komunikasi.jpg)
 
 ## Gantt Chart
 
 
 ## ERD
-
+![](Image/ERD.jpeg)
 
 ## Hasil Implementasi Perangkat Lunak
