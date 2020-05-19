@@ -4,15 +4,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@color/white"
-    tools:context=".PilihAkunFragment">
+    android:background="@color/white">
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
         android:gravity="center"
-        android:text="Pilih mau jadi apa ajg"
+        android:text="Kamu mau jadi apa?"
         android:textSize="20sp"/>
 
     <LinearLayout

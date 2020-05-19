@@ -47,7 +47,7 @@ public class ProfileFragment extends Fragment {
     SessionManager sessionManager;
     String getemail;
     private TextView fullname, Email, Alamat, Umur;
-    private static final String URL = "http://c196e879.ngrok.io/foodmates/userdetail.php";
+    private static final String URL = "https://ccf5967b.ngrok.io/foodmates/userdetail.php";
 
     public ProfileFragment() {
         // Required empty public constructor

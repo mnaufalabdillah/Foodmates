@@ -43,7 +43,7 @@ public class ProfileFragmentChef extends Fragment {
     SessionManager sessionManager;
     String getemail;
     private TextView fullname, Email, Alamat, Umur;
-    private static final String URL = "http://c196e879.ngrok.io/foodmates/readchef.php";
+    private static final String URL = "https://ccf5967b.ngrok.io/foodmates/chefdetail.php";
 
     public ProfileFragmentChef() {
         // Required empty public constructor
@@ -76,7 +76,7 @@ public class ProfileFragmentChef extends Fragment {
             public void onClick(View view) {
                 FragmentTransaction t = getFragmentManager().beginTransaction();
                 Fragment editFrag = new EditProfileFragment();
-                t.replace(R.id.fragment_container, editFrag);
+                t.replace(R.id.fragment_container_chef, editFrag);
                 t.commit();
             }
         });
@@ -100,8 +100,8 @@ public class ProfileFragmentChef extends Fragment {
         super.onCreate(savedInstanceState);
 
         sessionManager = new SessionManager(getActivity());
-        HashMap<String, String> user = sessionManager.getUserDetail();
-        getemail = user.get(sessionManager.EMAIL);
+        HashMap<String, String> chef = sessionManager.loadchef();
+        getemail = chef.get(sessionManager.EMAIL);
 
     }
 

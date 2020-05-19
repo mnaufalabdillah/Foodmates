@@ -28,7 +28,7 @@ public class HomeActivityChef extends AppCompatActivity {
 
     SessionManager sessionManager;
     String nama;
-    private static String URL = "http://c196e879.ngrok.io/foodmates/readchef.php";
+    private static String URL = "https://ccf5967b.ngrok.io/foodmates/readchef.php";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,11 +39,11 @@ public class HomeActivityChef extends AppCompatActivity {
         sessionManager.checkLoginChef();
         nama = sessionManager.loadchef().get("EMAIL");
 
-        BottomNavigationView bottomNav = findViewById(R.id.bottom_nav);
+        BottomNavigationView bottomNav = findViewById(R.id.bottom_nav_chef);
         bottomNav.setOnNavigationItemSelectedListener(navListener);
         if (savedInstanceState == null) {
-            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
-                    new HomeFragment()).commit();
+            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container_chef,
+                    new HomeFragmentChef()).commit();
         }
     }
 
@@ -54,21 +54,20 @@ public class HomeActivityChef extends AppCompatActivity {
 
             switch (item.getItemId()){
                 case R.id.nav_home:
-                    selectedFragment = new HomeFragment();
+                    selectedFragment = new HomeFragmentChef();
                     break;
                 /*case R.id.nav_favorite:
                     selectedFragment = new FavoriteFragment();
                     Toast.makeText(HomeActivityChef.this, nama, Toast.LENGTH_SHORT).show();
                     break;*/
                 case R.id.nav_order:
-                    selectedFragment = new OrderFragment();
-                    ChefDetail(nama);
+                    selectedFragment = new OrderFragmentChef();
                     break;
                 case R.id.nav_profile:
-                    selectedFragment = new ProfileFragment();
+                    selectedFragment = new ProfileFragmentChef();
                     break;
             }
-            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
+            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container_chef,
                     selectedFragment).commit();
 
             return true;
@@ -76,7 +75,7 @@ public class HomeActivityChef extends AppCompatActivity {
         }
     };
 
-    private void ChefDetail(final String email) {
+  /*  private void ChefDetail(final String email) {
         StringRequest stringRequest = new StringRequest(Request.Method.POST, URL,
                 new Response.Listener<String>() {
                     @Override
@@ -118,5 +117,5 @@ public class HomeActivityChef extends AppCompatActivity {
 
         RequestQueue requestQueue = Volley.newRequestQueue(this);
         requestQueue.add(stringRequest);
-    }
+    } */
 }
