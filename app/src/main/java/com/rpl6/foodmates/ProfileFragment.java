@@ -115,7 +115,7 @@ public class ProfileFragment extends Fragment {
         progressDialog.setMessage("Loading...");
         progressDialog.show();
 
-        StringRequest stringRequest = new StringRequest(Request.Method.POST, URL,
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, com.rpl6.foodmates.URL.UserDetail,
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {

@@ -92,7 +92,7 @@ public class LoginActivity extends AppCompatActivity {
         loading.setVisibility(View.VISIBLE);
         btn_login.setVisibility(View.GONE);
 
-        StringRequest stringRequest = new StringRequest(Request.Method.POST, URL_LOGIN,
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, URL.UserLogin,
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
@@ -153,7 +153,7 @@ public class LoginActivity extends AppCompatActivity {
         loading.setVisibility(View.VISIBLE);
         btn_login.setVisibility(View.GONE);
 
-        StringRequest stringRequest = new StringRequest(Request.Method.POST, URL_LOGINN,
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, URL.ChefLogin,
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {

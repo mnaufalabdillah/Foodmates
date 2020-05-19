@@ -56,7 +56,7 @@ public class ChefDetail extends AppCompatActivity {
     }
 
     private void loadChef(){
-        StringRequest stringRequest = new StringRequest(Request.Method.GET, URL,
+        StringRequest stringRequest = new StringRequest(Request.Method.GET, com.rpl6.foodmates.URL.readChef,
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {

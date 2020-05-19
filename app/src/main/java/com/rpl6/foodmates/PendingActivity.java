@@ -54,7 +54,7 @@ public class PendingActivity extends AppCompatActivity {
     }
 
     private void loadPendingOrders() {
-        StringRequest stringRequest = new StringRequest(Request.Method.POST, URL_READPENDING,
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, URL.PendingOrder,
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {

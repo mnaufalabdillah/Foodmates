@@ -87,7 +87,7 @@ public class ChefRegisActivity extends AppCompatActivity {
         final String salary = this.salaryChef.getText().toString().trim();
 
 
-        StringRequest stringRequest = new StringRequest(Request.Method.POST, URL_REGIST,
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, URL.ChefRegis,
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {

@@ -81,7 +81,7 @@ public class EditProfileFragment extends Fragment {
         progressDialog.setMessage("Loading...");
         progressDialog.show();
 
-        StringRequest stringRequest = new StringRequest(Request.Method.POST, URL,
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, com.rpl6.foodmates.URL.UserDetail,
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
@@ -151,7 +151,7 @@ public class EditProfileFragment extends Fragment {
         progressDialog.setMessage("Menyimpan...");
         progressDialog.show();
 
-        StringRequest stringRequest = new StringRequest(Request.Method.POST, URL_SAVE,
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, com.rpl6.foodmates.URL.UpdateUser,
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {

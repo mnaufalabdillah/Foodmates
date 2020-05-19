@@ -75,7 +75,7 @@ public class UserRegisActivity extends AppCompatActivity {
         final String umur = this.age.getText().toString().trim();
         final String jk = this.jkdipilih.getText().toString().trim();
 
-        StringRequest stringRequest = new StringRequest(Request.Method.POST, URL_REGIST,
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, URL.UserRegis,
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {

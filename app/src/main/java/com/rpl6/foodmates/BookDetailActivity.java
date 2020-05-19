@@ -120,7 +120,6 @@ public class BookDetailActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Payment();
-                Order();
             }
         });
 
@@ -231,7 +230,7 @@ public class BookDetailActivity extends AppCompatActivity {
     }
 
     private void UserDetail(final String email) {
-        StringRequest stringRequest = new StringRequest(Request.Method.POST, URL,
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, com.rpl6.foodmates.URL.UserDetail,
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
@@ -280,7 +279,7 @@ public class BookDetailActivity extends AppCompatActivity {
         final String status = "pending".trim();
         final String email = this.email.trim();
 
-        StringRequest stringRequest = new StringRequest(Request.Method.POST, URL_Payment,
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, com.rpl6.foodmates.URL.Payment,
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
@@ -292,6 +291,7 @@ public class BookDetailActivity extends AppCompatActivity {
 
                             if(success.equals("1")){
                                 Toast.makeText(BookDetailActivity.this, "Payment Pending!" + id, Toast.LENGTH_SHORT).show();
+                                Order();
                             }
                         } catch (JSONException e) {
                             e.printStackTrace();
@@ -332,16 +332,17 @@ public class BookDetailActivity extends AppCompatActivity {
         final String idpay = String.valueOf(this.idpay);
         final String status = "pending".trim();
 
-        StringRequest stringRequest = new StringRequest(Request.Method.POST, URL_Order,
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, com.rpl6.foodmates.URL.Order,
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
                         try {
                             JSONObject jsonObject = new JSONObject(response);
                             String success = jsonObject.getString("success");
+                            int id = jsonObject.getInt("id");
 
                             if(success.equals("1")){
-                                Toast.makeText(BookDetailActivity.this, "Order Pending! id: ", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(BookDetailActivity.this, "Order Pending! id: " + id, Toast.LENGTH_SHORT).show();
                             }
                         } catch (JSONException e) {
                             e.printStackTrace();

@@ -96,7 +96,7 @@ public class OrderFragment extends Fragment {
     }
 
        private void loadActiveOrd() {
-        StringRequest stringRequest = new StringRequest(Request.Method.POST, URL_READACTIVE,
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, URL.ActiveOrder,
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
@@ -149,7 +149,7 @@ public class OrderFragment extends Fragment {
     }
 
     private void loadPastOrd() {
-        StringRequest stringRequest = new StringRequest(Request.Method.POST, URL_READPAST,
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, URL.PastOrder,
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
