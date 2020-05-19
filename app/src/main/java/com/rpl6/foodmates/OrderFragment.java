@@ -46,8 +46,8 @@ public class OrderFragment extends Fragment {
 
     private RecyclerView rvActiveOrd, rvPastOrd;
     List<Chef> listActiveOrd, listPastOrd;
-    private static final String URL_READACTIVE = "https://739840cd.ngrok.io/foodmates/read_activeorder.php";
-    private static final String URL_READPAST = "https://739840cd.ngrok.io/foodmates/read_pastorder.php";
+    private static final String URL_READACTIVE = "http://87d155c6.ngrok.io/foodmates/read_activeorder.php";
+    private static final String URL_READPAST = "http://87d155c6.ngrok.io/foodmates/read_pastorder.php";
 
     public OrderFragment() {
         // Required empty public constructor
@@ -75,6 +75,7 @@ public class OrderFragment extends Fragment {
                 startActivity(i);
             }
         });
+
         return v;
     }
 

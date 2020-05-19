@@ -1,9 +1,12 @@
 package com.rpl6.foodmates;
 
 import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -49,7 +52,7 @@ public class OrderFragmentAdapter extends RecyclerView.Adapter<OrderFragmentAdap
     public static class OrderViewHolder extends RecyclerView.ViewHolder {
         private TextView tvorder_nama, tvorder_umur, tvorder_spesialisasi;
         private AppCompatImageView imgorder_photo;
-        private ImageView imgorder_call;
+        private Button imgorder_call;
 
         public OrderViewHolder(View orderView) {
             super(orderView);
@@ -60,6 +63,19 @@ public class OrderFragmentAdapter extends RecyclerView.Adapter<OrderFragmentAdap
             imgorder_call = orderView.findViewById(R.id.order_hubungichef);
             imgorder_photo = orderView.findViewById(R.id.order_photochef);
 
+            imgorder_call.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent callIntent = new Intent(Intent.ACTION_CALL);
+                    callIntent.setData(Uri.parse("tel:6038994210"));
+                    startActivity(callIntent);
+                }
+
+                private void startActivity(Intent callIntent) {
+                }
+            });
         }
+
+
     }
 }

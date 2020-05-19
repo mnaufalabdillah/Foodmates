@@ -34,7 +34,7 @@ public class ChefRegisActivity extends AppCompatActivity {
     private RadioButton jkdipilihchef;
     private Spinner spesialis, skill_1, skill_2, skill_3;
     private ProgressBar loading;
-    private static String URL_REGIST = "https://739840cd.ngrok.io/foodmates/chefregister.php";
+    private static String URL_REGIST = "http://c196e879.ngrok.io/foodmates/chefregister.php";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

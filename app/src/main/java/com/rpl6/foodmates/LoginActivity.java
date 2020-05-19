@@ -36,7 +36,8 @@ public class LoginActivity extends AppCompatActivity {
     private RadioGroup pilihakun;
     private RadioButton akundipilih;
     private ProgressBar loading;
-    private static String URL_LOGIN = "https://739840cd.ngrok.io/foodmates/login.php";
+    private static String URL_LOGIN = "http://c196e879.ngrok.io/foodmates/login.php";
+    private static String URL_LOGINN = "http://c196e879.ngrok.io/foodmates/loginChef.php";
     SessionManager sessionManager;
 
     @Override
@@ -67,7 +68,8 @@ public class LoginActivity extends AppCompatActivity {
                             Login(mEmail, mPass);
                             break;
                         case R.id.radioChef:
-                            Toast.makeText(LoginActivity.this, "Belom ada gan, sabar", Toast.LENGTH_SHORT).show();
+                            LoginChef(mEmail, mPass);
+                            /*Toast.makeText(LoginActivity.this, "Belom ada gan, sabar", Toast.LENGTH_SHORT).show();*/
                             break;
                     }
                 }else{
@@ -85,6 +87,7 @@ public class LoginActivity extends AppCompatActivity {
         });
     }
 
+//loginUser
     private void Login(final String email, final String password) {
         loading.setVisibility(View.VISIBLE);
         btn_login.setVisibility(View.GONE);
@@ -114,6 +117,7 @@ public class LoginActivity extends AppCompatActivity {
                                     loading.setVisibility(View.GONE);
                                 }
                             }
+
                         } catch (JSONException e) {
                             e.printStackTrace();
                             loading.setVisibility(View.GONE);
@@ -143,4 +147,66 @@ public class LoginActivity extends AppCompatActivity {
         RequestQueue requestQueue = Volley.newRequestQueue(this);
         requestQueue.add(stringRequest);
     }
+
+//loginchef
+    private void LoginChef(final String email, final String password) {
+        loading.setVisibility(View.VISIBLE);
+        btn_login.setVisibility(View.GONE);
+
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, URL_LOGINN,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        try {
+                            JSONObject jsonObject = new JSONObject(response);
+                            String success = jsonObject.getString("success");
+                            JSONArray jsonArray = jsonObject.getJSONArray("login");
+
+                            if(success.equals("1")){
+                                for(int i=0; i<jsonArray.length(); i++){
+                                    JSONObject object = jsonArray.getJSONObject(i);
+
+                                    String email = object.getString("email").trim();
+
+                                    sessionManager.createSessionChef(email);
+
+                                    Intent in = new Intent(LoginActivity.this, HomeActivityChef.class);
+                                    in.putExtra("email", email);
+                                    startActivity(in);
+                                    finish();
+
+                                    loading.setVisibility(View.GONE);
+                                }
+                            }
+
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                            loading.setVisibility(View.GONE);
+                            btn_login.setVisibility(View.VISIBLE);
+                            Toast.makeText(LoginActivity.this, "Error "+e.toString(), Toast.LENGTH_SHORT).show();
+                          }
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        loading.setVisibility(View.GONE);
+                        btn_login.setVisibility(View.VISIBLE);
+                        Toast.makeText(LoginActivity.this, "Error "+error.toString(), Toast.LENGTH_SHORT).show();
+                    }
+                })
+        {
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError{
+                Map<String, String> params = new HashMap<>();
+                params.put("email", email);
+                params.put("password", password);
+                return params;
+            }
+        };
+
+        RequestQueue requestQueue = Volley.newRequestQueue(this);
+        requestQueue.add(stringRequest);
+    }
+
 }

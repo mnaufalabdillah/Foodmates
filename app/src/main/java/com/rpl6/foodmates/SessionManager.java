@@ -10,6 +10,7 @@ public class SessionManager {
 
     SharedPreferences sharedPreferences;
     public SharedPreferences.Editor editor;
+
     public Context context;
     int PRIVATE_MODE = 0;
 
@@ -29,6 +30,13 @@ public class SessionManager {
         editor.apply();
     }
 
+    //chef
+    public void createSessionChef(String email){
+        editor.putBoolean(LOGIN, true);
+        editor.putString(EMAIL, email);
+        editor.apply();
+    }
+
     public boolean isLogin(){
         return sharedPreferences.getBoolean(LOGIN, false);
     }
@@ -39,6 +47,23 @@ public class SessionManager {
             context.startActivity(i);
             ((HomeActivity) context).finish();
         }
+    }
+
+    //chef
+    public void checkLoginChef(){
+        if(!this.isLogin()){
+            Intent ii = new Intent(context, LoginActivity.class);
+            context.startActivity(ii);
+            ((HomeActivityChef) context).finish();
+        }
+    }
+
+    //chef
+    public HashMap<String, String> loadchef(){
+        HashMap<String, String> chef = new HashMap<>();
+        chef.put(EMAIL, sharedPreferences.getString(EMAIL, null));
+
+        return chef;
     }
 
     public HashMap<String, String> getUserDetail(){

@@ -24,7 +24,7 @@ public class ChefDetail extends AppCompatActivity {
     private TextView tvNama, tvUmur, tvSpesialisasi, tvSkill1, tvSkill2, tvSkill3, tvSalary;
     private Button btnNext;
 
-    private static final String URL = "https://820a0336.ngrok.io/foodmates/readchef.php";
+    private static final String URL = "http://c196e879.ngrok.io/foodmates/readchef.php";
 
     private int extraSalary;
 

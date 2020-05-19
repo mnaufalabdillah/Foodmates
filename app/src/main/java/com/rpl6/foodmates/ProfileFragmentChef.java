@@ -1,18 +1,20 @@
 package com.rpl6.foodmates;
 
 import android.app.ProgressDialog;
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
-import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import com.android.volley.AuthFailureError;
@@ -30,40 +32,67 @@ import org.json.JSONObject;
 import java.util.HashMap;
 import java.util.Map;
 
-public class EditProfileFragment extends Fragment {
 
-    private static final String TAG = EditProfileFragment.class.getSimpleName();
-    private Button save;
+/**
+ * A simple {@link Fragment} subclass.
+ */
+public class ProfileFragmentChef extends Fragment {
+
+    private static final String TAG = ProfileFragmentChef.class.getSimpleName();
+    private Button btn_logout, edit;
     SessionManager sessionManager;
     String getemail;
-    private EditText editnama, editemail, editalamat, editumur;
-    private static final String URL_SAVE = "http://c196e879.ngrok.io/foodmates/updateuserdetail.php";
-    private static final String URL = "http://c196e879.ngrok.io/foodmates/userdetail.php";
+    private TextView fullname, Email, Alamat, Umur;
+    private static final String URL = "http://c196e879.ngrok.io/foodmates/readchef.php";
 
-    public EditProfileFragment() {
-
+    public ProfileFragmentChef() {
+        // Required empty public constructor
     }
 
-    @Override
-    public View onCreateView (final LayoutInflater inflater, final ViewGroup container,
-                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_edit_profile, container, false);
 
-        editnama = view.findViewById(R.id.fullname);
-        editemail = view.findViewById(R.id.Email);
-        editalamat = view.findViewById(R.id.Alamat);
-        editumur = view.findViewById(R.id.Umur);
-        save = view.findViewById(R.id.btn_save);
+    @Override
+    public View onCreateView(final LayoutInflater inflater, final ViewGroup container,
+                             Bundle savedInstanceState) {
+        // Inflate the layout for this fragment
+        View v = inflater.inflate(R.layout.fragment_profile, container, false);
+
+        fullname = v.findViewById(R.id.fullname);
+        Email = v.findViewById(R.id.Email);
+        Alamat = v.findViewById(R.id.Alamat);
+        Umur = v.findViewById(R.id.Umur);
+        edit = v.findViewById(R.id.btn_edit);
 
         getUserDetail();
+        fullname.setFocusableInTouchMode(false);
+        Email.setFocusableInTouchMode(false);
+        Umur.setFocusableInTouchMode(false);
+        Alamat.setFocusableInTouchMode(false);
 
-        save.setOnClickListener(new View.OnClickListener() {
+        InputMethodManager imm = (InputMethodManager) getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
+        imm.showSoftInput(fullname, InputMethodManager.SHOW_IMPLICIT);
+
+        edit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                    saveUserDetail();
+                FragmentTransaction t = getFragmentManager().beginTransaction();
+                Fragment editFrag = new EditProfileFragment();
+                t.replace(R.id.fragment_container, editFrag);
+                t.commit();
             }
         });
-        return view;
+
+        btn_logout = v.findViewById(R.id.btn_logout);
+        btn_logout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                sessionManager.logout();
+                Intent ii = new Intent(getActivity(), LoginActivity.class);
+                getActivity().startActivity(ii);
+                getActivity().finish();
+            }
+        });
+
+        return v;
     }
 
     @Override
@@ -77,6 +106,7 @@ public class EditProfileFragment extends Fragment {
     }
 
     private void getUserDetail() {
+
         final ProgressDialog progressDialog = new ProgressDialog(getActivity());
         progressDialog.setMessage("Loading...");
         progressDialog.show();
@@ -104,10 +134,10 @@ public class EditProfileFragment extends Fragment {
                                     int intUmur = object.getInt("umur");
                                     String strAlamat = object.getString("alamat").trim();
 
-                                    editnama.setText(strName);
-                                    editemail.setText(strEmail);
-                                    editumur.setText(Integer.toString(intUmur));
-                                    editalamat.setText(strAlamat);
+                                    fullname.setText(strName);
+                                    Email.setText(strEmail);
+                                    Umur.setText(Integer.toString(intUmur));
+                                    Alamat.setText(strAlamat);
 
                                 }
 
@@ -118,6 +148,7 @@ public class EditProfileFragment extends Fragment {
                             progressDialog.dismiss();
                             Toast.makeText(getActivity(), "Error Reading Detail " + e.toString(), Toast.LENGTH_SHORT).show();
                         }
+
                     }
                 },
                 new Response.ErrorListener() {
@@ -127,7 +158,6 @@ public class EditProfileFragment extends Fragment {
                         Toast.makeText(getActivity(), "Error Reading Detail " + error.toString(), Toast.LENGTH_SHORT).show();
                     }
                 }) {
-
             @Override
             protected Map<String, String> getParams() throws AuthFailureError {
                 Map<String, String> params = new HashMap<>();
@@ -138,60 +168,6 @@ public class EditProfileFragment extends Fragment {
 
         RequestQueue requestQueue = Volley.newRequestQueue(getActivity());
         requestQueue.add(stringRequest);
-    }
 
-    private void saveUserDetail() {
-
-        final String name = this.editnama.getText().toString().trim();
-        final String email = this.editemail.getText().toString().trim();
-        final String alamat = this.editalamat.getText().toString().trim();
-        final String age = this.editumur.getText().toString().trim();
-
-        final ProgressDialog progressDialog = new ProgressDialog(getActivity());
-        progressDialog.setMessage("Menyimpan...");
-        progressDialog.show();
-
-        StringRequest stringRequest = new StringRequest(Request.Method.POST, URL_SAVE,
-                new Response.Listener<String>() {
-                    @Override
-                    public void onResponse(String response) {
-                        progressDialog.dismiss();
-
-                        try {
-                            JSONObject jsonObject = new JSONObject(response);
-                            String success = jsonObject.getString("success");
-
-                            if (success.equals("1")) {
-                                Toast.makeText(getActivity(), "Success", Toast.LENGTH_SHORT).show();
-                                sessionManager.createSession(email);
-                            }
-
-                        } catch (JSONException e) {
-                            e.printStackTrace();
-                            Toast.makeText(getActivity(), "Error Saving Detail " + e.toString(), Toast.LENGTH_SHORT).show();
-                        }
-                    }
-                },
-                new Response.ErrorListener() {
-                    @Override
-                    public void onErrorResponse(VolleyError error) {
-                        Toast.makeText(getActivity(), "Error Saving Detail " + error.toString(), Toast.LENGTH_SHORT).show();
-                    }
-                }) {
-
-            @Override
-            protected Map<String, String> getParams() throws AuthFailureError {
-                Map<String, String> params = new HashMap<>();
-                params.put("nama", name);
-                params.put("emailnew", email);
-                params.put("alamat", alamat);
-                params.put("umur", age);
-                params.put("emailold", getemail);
-                return params;
-            }
-        };
-
-        RequestQueue requestQueue = Volley.newRequestQueue(getActivity());
-        requestQueue.add(stringRequest);
     }
 }

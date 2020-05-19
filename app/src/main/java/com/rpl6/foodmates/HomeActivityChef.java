@@ -1,23 +1,17 @@
 package com.rpl6.foodmates;
 
+import android.os.Bundle;
+import android.view.MenuItem;
+import android.widget.Toast;
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
-import android.content.Context;
-import android.content.Intent;
-import android.os.Bundle;
-import android.view.MenuItem;
-import android.view.View;
-import android.widget.Button;
-import android.widget.Toast;
-
 import com.android.volley.AuthFailureError;
-import com.android.volley.DefaultRetryPolicy;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
-import com.android.volley.RetryPolicy;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
@@ -30,20 +24,20 @@ import org.json.JSONObject;
 import java.util.HashMap;
 import java.util.Map;
 
-public class HomeActivity extends AppCompatActivity {
+public class HomeActivityChef extends AppCompatActivity {
 
     SessionManager sessionManager;
     String nama;
-    private static String URL = "http://c196e879.ngrok.io/foodmates/userdetail.php";
+    private static String URL = "http://c196e879.ngrok.io/foodmates/readchef.php";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_home);
+        setContentView(R.layout.activity_home_chef);
 
         sessionManager = new SessionManager(this);
-        sessionManager.checkLogin();
-        nama = sessionManager.getUserDetail().get("EMAIL");
+        sessionManager.checkLoginChef();
+        nama = sessionManager.loadchef().get("EMAIL");
 
         BottomNavigationView bottomNav = findViewById(R.id.bottom_nav);
         bottomNav.setOnNavigationItemSelectedListener(navListener);
@@ -62,13 +56,13 @@ public class HomeActivity extends AppCompatActivity {
                 case R.id.nav_home:
                     selectedFragment = new HomeFragment();
                     break;
-                case R.id.nav_favorite:
+                /*case R.id.nav_favorite:
                     selectedFragment = new FavoriteFragment();
-                    Toast.makeText(HomeActivity.this, nama, Toast.LENGTH_SHORT).show();
-                    break;
+                    Toast.makeText(HomeActivityChef.this, nama, Toast.LENGTH_SHORT).show();
+                    break;*/
                 case R.id.nav_order:
                     selectedFragment = new OrderFragment();
-                    UserDetail(nama);
+                    ChefDetail(nama);
                     break;
                 case R.id.nav_profile:
                     selectedFragment = new ProfileFragment();
@@ -82,7 +76,7 @@ public class HomeActivity extends AppCompatActivity {
         }
     };
 
-    private void UserDetail(final String email) {
+    private void ChefDetail(final String email) {
         StringRequest stringRequest = new StringRequest(Request.Method.POST, URL,
                 new Response.Listener<String>() {
                     @Override
@@ -98,19 +92,19 @@ public class HomeActivity extends AppCompatActivity {
 
                                     String email = object.getString("nama").trim();
 
-                                    Toast.makeText(HomeActivity.this, email, Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(HomeActivityChef.this, email, Toast.LENGTH_SHORT).show();
                                 }
                             }
                         } catch (JSONException e) {
                             e.printStackTrace();
-                            Toast.makeText(HomeActivity.this, "Error "+e.toString(), Toast.LENGTH_SHORT).show();
+                            Toast.makeText(HomeActivityChef.this, "Error "+e.toString(), Toast.LENGTH_SHORT).show();
                         }
                     }
                 },
                 new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
-                        Toast.makeText(HomeActivity.this, "Error "+error.toString(), Toast.LENGTH_SHORT).show();
+                        Toast.makeText(HomeActivityChef.this, "Error "+error.toString(), Toast.LENGTH_SHORT).show();
                     }
                 })
         {

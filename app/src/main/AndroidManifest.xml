@@ -20,7 +20,10 @@
         <activity android:name=".ChefRegisActivity" />
         <activity android:name=".RegisActivity" />
         <activity android:name=".LoginActivity" />
+        <activity android:name=".HomeActivityChef"/>
         <activity android:name=".HomeActivity">
+
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

@@ -57,10 +57,10 @@
         </LinearLayout>
 
     </LinearLayout>
-    <ImageView
+    <Button
         android:id="@+id/order_hubungichef"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
         android:background="@drawable/telp"
         android:layout_gravity="center|end"
         android:layout_marginRight="20dp"
