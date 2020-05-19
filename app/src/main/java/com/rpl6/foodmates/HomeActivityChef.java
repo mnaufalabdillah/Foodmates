@@ -26,8 +26,8 @@ import java.util.Map;
 
 public class HomeActivityChef extends AppCompatActivity {
 
-    SessionManager sessionManager;
-    String nama;
+    SessionManager sessionManagerr;
+    String namaa;
     private static String URL = "https://ccf5967b.ngrok.io/foodmates/readchef.php";
 
     @Override
@@ -35,9 +35,9 @@ public class HomeActivityChef extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_chef);
 
-        sessionManager = new SessionManager(this);
-        sessionManager.checkLoginChef();
-        nama = sessionManager.loadchef().get("EMAIL");
+        sessionManagerr = new SessionManager(this);
+        sessionManagerr.checkLoginChef();
+        namaa = sessionManagerr.loadchef().get("EMAIL");
 
         BottomNavigationView bottomNav = findViewById(R.id.bottom_nav_chef);
         bottomNav.setOnNavigationItemSelectedListener(navListener);
@@ -62,6 +62,7 @@ public class HomeActivityChef extends AppCompatActivity {
                     break;*/
                 case R.id.nav_order:
                     selectedFragment = new OrderFragmentChef();
+                    ChefDetail(namaa);
                     break;
                 case R.id.nav_profile:
                     selectedFragment = new ProfileFragmentChef();
@@ -75,7 +76,7 @@ public class HomeActivityChef extends AppCompatActivity {
         }
     };
 
-  /*  private void ChefDetail(final String email) {
+    private void ChefDetail(final String email) {
         StringRequest stringRequest = new StringRequest(Request.Method.POST, URL,
                 new Response.Listener<String>() {
                     @Override
@@ -117,5 +118,5 @@ public class HomeActivityChef extends AppCompatActivity {
 
         RequestQueue requestQueue = Volley.newRequestQueue(this);
         requestQueue.add(stringRequest);
-    } */
+    }
 }
