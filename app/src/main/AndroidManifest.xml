@@ -12,7 +12,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".BookDetailActivity"/>
+        <activity android:name=".OrderProcessed"></activity>
+        <activity android:name=".BookDetailActivity" />
         <activity android:name=".ChefDetail" />
         <activity android:name=".SearchChefActivity" />
         <activity android:name=".PendingActivity" />
@@ -20,10 +21,8 @@
         <activity android:name=".ChefRegisActivity" />
         <activity android:name=".RegisActivity" />
         <activity android:name=".LoginActivity" />
-        <activity android:name=".HomeActivityChef"/>
+        <activity android:name=".HomeActivityChef" />
         <activity android:name=".HomeActivity">
-
-
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

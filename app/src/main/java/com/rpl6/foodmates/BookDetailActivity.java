@@ -5,6 +5,7 @@ import androidx.core.content.ContextCompat;
 
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -343,6 +344,8 @@ public class BookDetailActivity extends AppCompatActivity {
 
                             if(success.equals("1")){
                                 Toast.makeText(BookDetailActivity.this, "Order Pending! id: " + id, Toast.LENGTH_SHORT).show();
+                                Intent intent = new Intent(BookDetailActivity.this, OrderProcessed.class);
+                                startActivity(intent);
                             }
                         } catch (JSONException e) {
                             e.printStackTrace();
