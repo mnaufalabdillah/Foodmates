@@ -47,7 +47,7 @@ User dari aplikasi ini adalah masyarakat
 ![](Image/Use%20Case%20RPL-AD%20Komunikasi.jpg)
 
 ## Gantt Chart
-
+![](Image/gantt.jpg)
 
 ## ERD
 ![](Image/ERD.jpeg)
