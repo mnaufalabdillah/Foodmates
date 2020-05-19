@@ -1,7 +1,7 @@
 package com.rpl6.foodmates;
 
 public class URL {
-    private static String URL = "https://22cd70aa.ngrok.io";
+    private static String URL = "https://bd1f8325.ngrok.io";
     public static String UserLogin = URL + "/foodmates/login.php";
     public static String ChefLogin = URL + "/foodmates/loginChef.php";
 

@@ -35,7 +35,7 @@ public class UserRegisActivity extends AppCompatActivity {
     private ProgressBar loading;
     private RadioGroup pilihjk;
     private RadioButton jkdipilih;
-    private static String URL_REGIST = "http://c196e879.ngrok.io/foodmates/register.php";
+    private static String URL_REGIST = "http://28061b11.ngrok.io/foodmates/register.php";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
