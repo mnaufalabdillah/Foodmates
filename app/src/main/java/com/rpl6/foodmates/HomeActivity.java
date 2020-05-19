@@ -42,7 +42,13 @@ public class HomeActivity extends AppCompatActivity {
         setContentView(R.layout.activity_home);
 
         sessionManager = new SessionManager(this);
-        sessionManager.checkLogin();
+        if(sessionManager.isLoginChef()){
+            Intent ii = new Intent(HomeActivity.this, HomeActivityChef.class);
+            startActivity(ii);
+            finish();
+        } else{
+            sessionManager.checkLogin();
+        }
         nama = sessionManager.getUserDetail().get("EMAIL");
 
         BottomNavigationView bottomNav = findViewById(R.id.bottom_nav);
