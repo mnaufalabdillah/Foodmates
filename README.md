@@ -27,6 +27,8 @@ User dari aplikasi ini adalah masyarakat
 * User dapat memberikan rating pada chef yang sudah dipesan
 * User ataupun Chef dapat mengganti data profilnya
 * Chef dapat memilih menerima atau menolak pesanan yang masuk dari user
+* User dapat memesan chef yang diinginkan
+* User dapat menambahkan chef ke list favorite
 
 ## Use Case Diagram
 ![](Image/RPL.jpg)
@@ -67,4 +69,4 @@ User dari aplikasi ini adalah masyarakat
 ![](Image/14.jpeg)
 ![](Image/15.jpeg)
 ![](Image/16.jpeg)
-
+![](Image/17.jpeg)
