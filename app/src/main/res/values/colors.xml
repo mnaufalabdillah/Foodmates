@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="colorPrimary">#6200EE</color>
-    <color name="colorPrimaryDark">#3700B3</color>
+    <color name="colorPrimaryDark">#000000</color>
     <color name="colorAccent">#03DAC5</color>
     <color name="black">#000000</color>
     <color name="white">#FFFFFF</color>
     <color name="abuabu">#A1A1A1</color>
     <color name="pink40">#66FF4242</color>
     <color name="biru">#90C2FF</color>
+    <color name="ungu">#3700B3</color>
     <color name="abu">#344955</color>
     <color name="yellow">#F9AA33</color>
 
