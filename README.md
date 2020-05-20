@@ -53,3 +53,14 @@ User dari aplikasi ini adalah masyarakat
 ![](Image/ERD.jpeg)
 
 ## Hasil Implementasi Perangkat Lunak
+![](Image/1.jpeg)
+![](Image/2.jpeg)
+![](Image/3.jpeg)
+![](Image/4.jpeg)
+![](Image/5.jpeg)
+![](Image/6.jpeg)
+![](Image/7.jpeg)
+![](Image/9.jpeg)
+![](Image/10.jpeg)
+![](Image/11.jpeg)
+![](Image/12.jpeg)
