@@ -60,7 +60,10 @@ User dari aplikasi ini adalah masyarakat
 ![](Image/5.jpeg)
 ![](Image/6.jpeg)
 ![](Image/7.jpeg)
+![](Image/13.jpeg)
 ![](Image/9.jpeg)
 ![](Image/10.jpeg)
 ![](Image/11.jpeg)
-![](Image/12.jpeg)
+![](Image/14.jpeg)
+![](Image/15.jpeg)
+
