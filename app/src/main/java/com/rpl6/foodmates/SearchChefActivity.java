@@ -25,8 +25,6 @@ public class SearchChefActivity extends AppCompatActivity {
     private RecyclerView rvChef;
     List<Chef> chefList;
 
-    private static final String URL = "http://c196e879.ngrok.io/foodmates/readchef.php";
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

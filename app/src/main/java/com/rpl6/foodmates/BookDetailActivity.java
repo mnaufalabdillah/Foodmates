@@ -52,9 +52,6 @@ public class BookDetailActivity extends AppCompatActivity {
     String email, idc, idp;
     int idpay;
     int totalHarga;
-    private static String URL = "http://c196e879.ngrok.io/foodmates/userdetail.php";
-    private static String URL_Payment = "http://c196e879.ngrok.io/foodmates/payment.php";
-    private static String URL_Order = "http://c196e879.ngrok.io/foodmates/postorder.php";
 
     private EditText edtDate, edtStart, edtEnd, edtNotes;
     private Button btnBook;

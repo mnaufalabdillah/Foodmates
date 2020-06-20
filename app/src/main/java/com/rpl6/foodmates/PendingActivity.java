@@ -35,7 +35,6 @@ public class PendingActivity extends AppCompatActivity {
     List<Chef> listPendingOrd;
     SessionManager sessionManager;
     String getEmail;
-    private static final String URL_READPENDING ="http://87d155c6.ngrok.io/foodmates/read_pendingorders.php";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

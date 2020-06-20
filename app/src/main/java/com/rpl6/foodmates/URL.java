@@ -1,7 +1,7 @@
 package com.rpl6.foodmates;
 
 public class URL {
-    private static String URL = "https://3c8d4fbd.ngrok.io";
+    private static String URL = "https://66d72553b2a4.ngrok.io";
     public static String UserLogin = URL + "/foodmates/login.php";
     public static String ChefLogin = URL + "/foodmates/loginChef.php";
 
@@ -22,5 +22,9 @@ public class URL {
     public static String ActiveOrder = URL + "/foodmates/read_activeorder.php";
     public static String PastOrder = URL + "/foodmates/read_pastorder.php";
     public static String PendingOrder = URL + "/foodmates/read_pendingorders.php";
+
+    public static String DetailPendingOrder = URL + "/foodmates/detail_pendingorder.php";
+    public static String CancelPendingOrder = URL + "/foodmates/cancel_order.php";
+
     //public static String  = URL +
 }

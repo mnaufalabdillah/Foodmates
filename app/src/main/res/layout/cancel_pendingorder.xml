@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/white">
+
+    <ImageView
+        android:id="@+id/image_processed"
+        android:layout_width="match_parent"
+        android:layout_height="259dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="56dp"
+        android:layout_marginEnd="-2dp"
+        android:layout_marginBottom="50dp"
+        android:contentDescription="OrderProcessed"
+        android:src="@drawable/orderpending" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/image_processed"
+        android:layout_marginHorizontal="50dp"
+        android:layout_marginTop="12dp"
+        android:fontFamily="@font/comfortaa"
+        android:padding="10dp"
+        android:text="Success! Your order has been canceled"
+        android:textColor="@color/black"
+        android:textSize="20sp" />
+
+    <Button
+        android:id="@+id/btn_close"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="56dp"
+        android:background="@drawable/roundedbutton"
+        android:fontFamily="@font/roboto_black"
+        android:text="C L O S E"
+        android:textColor="@android:color/white" />
+</RelativeLayout>

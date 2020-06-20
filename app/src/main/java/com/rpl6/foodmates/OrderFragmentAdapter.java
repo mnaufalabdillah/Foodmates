@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.widget.AppCompatImageView;
@@ -36,12 +37,22 @@ public class OrderFragmentAdapter extends RecyclerView.Adapter<OrderFragmentAdap
     }
 
     @Override
-    public void onBindViewHolder(@NonNull OrderViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull final OrderViewHolder holder, int position) {
         final Chef OrdChef = OrderData.get(position);
 
         holder.tvorder_nama.setText(OrdChef.getNama());
         holder.tvorder_umur.setText(Integer.toString(OrdChef.getUmur()));
         holder.tvorder_spesialisasi.setText(OrdChef.getSpesialisasi());
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(holder.itemView.getContext(), "Kamu memilih " + OrderData.get(holder.getAdapterPosition()).getNama(), Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(v.getContext(), PendingDetail.class);
+                intent.putExtra("id", OrderData.get(holder.getAdapterPosition()).getId());
+                oContext.startActivity(intent);
+            }
+        });
+
     }
 
     @Override

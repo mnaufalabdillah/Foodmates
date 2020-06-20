@@ -19,6 +19,8 @@
         <activity android:name=".PendingActivity" />
         <activity android:name=".UserRegisActivity" />
         <activity android:name=".ChefRegisActivity" />
+        <activity android:name=".PendingDetail" />
+        <activity android:name=".CancelPendingOrder" />
         <activity android:name=".RegisActivity" />
         <activity android:name=".LoginActivity" />
         <activity android:name=".HomeActivityChef">
